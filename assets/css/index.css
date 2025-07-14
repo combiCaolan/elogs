@@ -1,0 +1,606 @@
+.navbar{
+	background: linear-gradient(180deg,#0d6938 0,#07351c)!important;
+}
+
+.dropdown button{
+	color:white!important;
+}
+
+.clickedon{
+	background:lightgray;
+}
+
+.row .btn{
+	background:whitesmoke!important;
+	color: black!important;
+	border: 1px solid black!important;
+}
+/*
+#FilterButton{
+	background: #21759b;
+	color:white;
+	border:0;
+	padding:8px;
+	border-radius:5px;
+	outline:none;
+}
+/* 
+#FixedUsernameText, #FixedAccessLevelText, #FixedLogoutText{
+	font-weight:600;
+}
+
+#InstructionsText{
+	text-align:center;
+}
+
+@media only screen and (max-width: 961px){
+
+	#MobileAlert{
+		display:unset;
+		position: fixed;
+		background: lightgray;
+		z-index: 3;
+		background: #edededf2;
+		width: 95%;
+		height: 87%;
+		top: 65px;
+		left: 2%;
+		padding: 10px;
+		font-size:20px;
+	}
+}
+
+@media only screen and (min-width: 961px){
+
+	#MobileAlert{
+		display:none;
+	}
+}
+
+
+#SearchInput{
+	outline:none;
+	margin:10px;
+	padding:10px;
+}
+
+#InfoAboutLabel{
+	background: transparent;
+    margin: 2px;
+    margin-left: 1px;
+    font-weight: bold;
+    font-size: 16px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+#InfoAboutResult{
+	background: transparent;
+    margin: 2px;
+    margin-left: 10px;
+    font-style: italic;
+	padding-top: 2px;
+	padding-bottom: 3px;
+}
+
+#InfoAboutLine{
+	padding:5px;
+}
+
+
+.CombiLogLine{
+	min-height:40px;
+	padding:10px;
+	min-height:80px;
+	background:whitesmoke;
+}
+
+.LogInfoText{
+	margin:5px;
+	margin: 2px;
+    font-size: 15px;
+    margin-top: 0;
+}
+
+
+#LogInfoText{
+	background: transparent;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 14px;
+	padding-top: 10px;
+}
+
+
+.ClickedOn{
+	background:ghostwhite;
+}
+
+
+#DefinitionTag{
+	min-height: 45px;
+    padding: 10px;
+    background: whitesmoke;
+    font-size: 16px;
+}
+
+
+#SearchFilterBTN, #ClearFilterBTN{
+	margin:5px;
+}
+
+
+.InfoAboutLabel{
+	margin:0;
+}
+
+
+#InfoAboutElement{
+	margin:0;
+}
+
+
+#StarterTime{
+	margin:5px;
+	padding:5px;
+}
+
+
+#EndTime{
+	margin:5px;
+	padding:5px;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	font-weight:100;
+	margin:0;
+}
+
+
+#DatesInLogsList{
+	display:none;
+	height:200px;
+	overflow:auto;
+	border:1px solid gray;
+}
+
+
+#LogTypeLogsList{
+	display:none;
+	overflow:auto;
+	border:1px solid gray;
+}
+
+
+ul{
+	padding-left:0;
+}
+
+
+li{
+	list-style: none;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+#OpenAFileDiv{
+	padding:0px;
+}
+
+
+#TimeFilter{
+	padding:10px;
+}
+
+
+#AddButton{
+	color:green;
+	float:right;
+}
+
+
+#RemoveButton{
+	color:red;
+	float:right;
+	margin-left:3px;
+}
+
+
+#OpenAFileIcon{
+	float:right;
+	margin:0px;
+}
+
+
+#FilterThroughLogsIcon{
+	float:right;
+	margin:0px;
+}
+
+
+.CombiTitle{
+	font-size:28px;
+	font-weight:100;
+	margin:5px;
+	color:white;
+	float:left;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	margin:8px;
+}
+
+#LabelTag{
+	margin:10px;
+	margin-top:5px;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+#inputTag{
+	margin:20px;
+	margin-top:2px;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+#ExportResultsDiv{
+	text-align:center;
+}
+
+.ExportResultsButton{
+	border:0;
+	padding:10px;
+	width:70%;
+	margin:10px;
+	outline:none;
+	background:gainsboro;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+#ExportResultsDiv{
+	width:20%;
+	bottom:0;
+	position:fixed;
+	background:ghostwhite;
+}
+
+
+body,html{
+	background:ghostwhite;
+	margin:0;
+	padding:0;
+}
+
+
+#SideMenu{
+    padding: 0px;
+    padding-top:53px;
+	width: 20%;
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    z-index: 2;
+    margin-top: 0px;
+    background: white;
+    float: left;
+    height: 100%;
+    font-family: sans-serif;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+#TopBar{
+	top: 0;
+	z-index: 3;
+	background-color: rgb(13, 105, 56);
+	width: 100%;
+	position: fixed;
+}
+
+
+#FileOptionBlock{
+	float: left;
+    width: 30%;
+	height:150px;
+	text-align:center;
+	margin:15px;
+}
+
+
+#LogoHead{
+	float:right;
+}
+
+
+#MainBody{
+    overflow: auto;
+    display: unset;
+    width: 78%;
+    margin: 10px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-left: 21%;
+    height: 90%;
+    float: left;
+    top: 61px;
+    position: fixed;
+}
+
+
+#OpenForm{
+	margin:0px;
+	width:100%;
+	height:190px;
+}
+
+
+.LogInput{
+	padding:5px;
+	margin:10px;
+}
+
+
+#LogTitle{
+	padding:5px;
+	margin:10px;
+	font-family:sans-serif;
+}
+
+
+#LogResults{
+	background:white;
+	width:100%;
+	height:100%;
+	margin-top:2%;
+	overflow:auto;
+	margin:0px;
+}
+
+
+#ParagraphTimeStamp{
+	margin:10px;
+	font-size:15px;
+	font-family:sans-serif;
+	color:gray;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+#ParagraphTimeStamp:hover {
+	margin:10px;
+	font-size:15px;
+	font-family:sans-serif;
+	color:blue;
+	font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin:0px;
+  font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  width:100%;
+  position: relative;
+}
+
+
+th {
+  font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  border: 1px solid lightgray;
+  text-align: center;
+  padding: 5px;
+  position: sticky;
+  top: -2px;
+  color:black;
+  background-color: LightGray;
+}
+
+td {
+  font-family:"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  border: 1px solid lightgray;
+  text-align: center;
+  padding: 5px;
+  color:black;
+} */
+
+
+/* td:hover, th:hover {
+  border: 1px solid lightgray;
+  text-align: center;
+  padding: 5px;
+  color:blue;
+} */
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+/* .sticky {
+  position: fixed;
+  top: 50;
+ } */
+
+/* tr:nth-child(even) {
+
+  background-color: #dddddd;
+
+} */
+
+/* #DivTabOptions{
+	background:transparent;
+}
+
+
+#TabOption{
+	border-bottom:0;
+	outline:none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding:8px;
+}
+
+#LogMsgCentreLog{
+	display:none;
+	text-align:center;
+	font-family:sans-serif;
+}
+
+
+#LogSystemLog{
+	display:none;
+	text-align:center;
+	font-family:sans-serif;
+}
+
+
+#LogUserLog_old{
+	display:none;
+	text-align:center;
+	font-family:sans-serif;
+}
+
+#LogUserLog{
+	text-align:center;
+	font-family:sans-serif;
+}
+
+
+#IndexPageMessage{
+	text-align:center;
+	margin-top:15%;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 100;
+    line-height: 26.4px;
+}
+
+
+#IndexPageMessageText{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	font-weight:100;
+}
+ */
+
+/**MENU STYLE START**/
+
+/* .InfoAboutLineBTN, .FilterThroughLogs{
+	outline: none;
+    height: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    font-weight: 100;
+    font-size: 15px;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    width: 100%;
+    border: 0px;
+    text-align:left;
+	background:rgb(13, 105, 56);
+	color:white;
+} */
+
+/**MENU STYLE END**/
+
+
+
+#CombiLogLine{
+	border: 1px solid black;
+	height: 150px;
+	overflow: auto;
+	padding: 5px;
+}
+
+#CombiLogLine p {
+	display: contents;
+	width: 48%;
+}
+
+#CombiLogLine p:nth-child(odd) {
+	font-weight: 700!important;
+}
+
+#CombiLogLine p:nth-child(even)::after {
+    content: "";
+    display: block;
+    height: 0;
+    margin-bottom: 8px; /* Optional: adjust spacing */
+    border-bottom: 1px solid #eee; /* Optional: add a subtle line */
+}
+
+
+
+
+
+#InfoAboutLine{
+	border: 1px solid black;
+	height: 150px;
+	overflow: auto;
+	padding: 5px;
+}
+
+#InfoAboutLine p {
+	display: contents;
+	width: 48%;
+}
+
+#InfoAboutLine p:nth-child(odd){
+	font-weight: 800;
+}
+
+#InfoAboutLine p:nth-child(even)::after {
+    content: "";
+    display: block;
+    height: 0;
+    margin-bottom: 8px; /* Optional: adjust spacing */
+    border-bottom: 1px solid #eee; /* Optional: add a subtle line */
+}
+
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: linear-gradient(180deg,#0d6938 0,#07351c)!important;
+  color: white;
+}
+
+#ExportResultsDiv{
+	z-index: 1111111111040!important;
+    background: white;
+    border-top: 1px solid black;
+    padding: 10px;
+}
+
+#SidebarResizeHandle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+    cursor: ew-resize;
+    background: rgba(0,0,0,0.05);
+    z-index: 1050;
+}
+#SideMenu {
+    position: relative;
+    min-width: 200px;
+    max-width: 600px;
+}
+

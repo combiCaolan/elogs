@@ -1,0 +1,21 @@
+CombiTitle:Log Viewer
+FilterThroughLogs:Filter Through Logs
+InfoAboutLineBTN:Info About Line
+ExportResultsButton:Export Results
+HeaderFileButton:File
+ReadLogFile:Open
+OpenFileButton:Open A New Log File
+BackButton:Back
+SupportButton:Combilift Technical Support
+eCompassButton:eCompass
+ChangeLanguageButton:Settings
+TimeStampth:Time Stamp ▼
+CodeStampth:Event ▼
+Sourceidth:Device ▼
+Val1th:Value 1
+Val2th:Value 2
+Val3th:Value 3
+Val4th:Value 4
+ActionCodeth:Action 
+Fault:Fault Message 
+CloseTheseLogs:Clear Logs

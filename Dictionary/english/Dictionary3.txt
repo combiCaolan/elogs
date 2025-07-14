@@ -1,0 +1,33 @@
+Active_User_0:Generic Operator
+Active_User_1:Operator_low
+Active_User_2:Operator_std1
+Active_User_3:Operator_high
+Active_User_4:Service
+Active_User_5:Manager
+Active_User_6:Dealer
+Active_User_7:Combilift
+Active_User_8:Developer
+Last_User_0:Generic Operator
+Last_User_1:Operator_low
+Last_User_2:Operator_std
+Last_User_3:Operator_high
+Last_User_4:Service
+Last_User_5:Manager
+Last_User_6:Dealer
+Last_User_7:Combilift
+Last_User_8:Developer
+Login_State_0:Failure
+Login_State_1:Success
+Login_at_0:Failure
+Login_at_1:Success
+Curtis_TP_1:Fault Number 1
+Curtis_TP_2:Fault Number 2
+Curtis_TP_3:Fault Number 3
+Curtis_TP_4:Fault Number 4
+Curtis_TP_5:Fault Number 5
+Curtis_TP_6:Fault Number 6
+Curtis_TP_7:Fault Number 7
+Curtis_TP_8:Fault Number 8
+Curtis_TP_9:Fault Number 9
+Curtis_TP_10:Fault Number 10
+Curtis_Steer_0:Fault Number Zero

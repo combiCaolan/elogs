@@ -1,0 +1,295 @@
+XXX,Label,Scale,Units,Description
+empty,Fault,*, , 
+2,Label,Scale,Units,Description
+36,Label,Scale,Units,Description
+100,Action,*,Service Log,Service Log
+101,Action,*,First Service Reset,First Service Reset info
+102,Action,*,Standard Service Reset,Standard Service Reset info
+103,Action,*,Full Service Reset,Full Service Reset info
+104,Action,*,First Service interval changed,New First Service Interval has been set
+105,Action,*,Standard Service interval changed,Standard Service Interval has been set
+106,Action,*,Full Service interval changed,Full Service Interval has been set
+107,Action,*,Service warning confirmed,Service Warning has been confirmed
+108,Action,*,Standard Service interval time changed,Standard Service Interval time has been set
+109,Action,*,Full Service interval time changed,Full Service Interval time has been set
+110,Action,*,Service warning confirmed,Service Warning has been confirmed
+111,Action,*,Service warning interval,Service Warning interval has been changed
+112,Action,*,Service warning interval in days,Service Warning interval in days has been changed
+200,Action,*,System Log,System Log
+201,Action,*,System Boot,System Boot from shutdown
+202,Action,*,System Standby,System entered into Standby mode
+203,Action,*,System Shutdown,System is going to fully Shutdown
+204,Action,*,Date/Time update,System Date and Time were updated
+205,Action,*,Hourmeter Updated,Hourmeter updated
+206,Action,*,Logs Downloaded,Logs archive file saved into USB
+207,Action,*,CLP Loaded,CLP parameter file read from USB
+208,Action,*,CLP Downloaded,CLP parameter file saved into USB
+209,Action,*,MoCAS HI LEVEL Success,MoCAS HI LEVEL update was successfull
+210,Action,*,MoCAS HI LEVEL Fail,MoCAS HI LEVEL update failed
+211,Action,*,MoCAS Hourmeter Success,MoCAS Hourmeter update was successfull
+212,Action,*,MoCAS Hourmeter Fail,MoCAS Hourmeter update failed
+213,Action,*,MoCAS Module Success,MoCAS Module update was successfull
+214,Action,*,MoCAS Module Fail,MoCAS Module update failed
+215,Action,*,USB Software Update,Controller updated via USB port
+216,Action,*,Dealer Machine Installation Date has been updated
+217,Action,*,Customer Machine Installation Date has been updated
+300,Action,*,Battery Log,Battery Log
+301,Action,*,Connected to charger,Machine is connected to charger
+302,Action,*,Disconnected from charger,Machine is disconnected from charger
+303,Action,*,Low battery level,Low battery level
+304,Action,*,Critical battery level,Critical battery level
+305,Action,*,High battery temperature,High battery temperature
+306,Action,*,Critical battery temperature,Critical battery temperature
+307,Action,*,BMS requested shutdown,BMS requested shutdown
+308,Action,*,BMS alarm event,BMS alarm event
+309,Action,*,Battery settings changed,Battery settings changed
+400,Action,*,System Log,System Log
+401,Action,*,Pre-Operation Check,Pre-Operation Check done
+402,Action,*,Drivers Presence changed,Drivers Presence changed
+500,Action,*,Messages,Messages
+Curtis_TP_1,Fault,*,38 - Main Contactor Welded,Just prior to the main contactor closing the capacitor bank voltage (B+ connection terminal) was loaded for a short time and the voltage did not discharge
+Curtis_TP_2,Fault,*,39 - Main Contactor Did Not Close,With the main contactor commanded closed the capacitor bank voltage (B+ connection terminal) did not charge to B+
+Curtis_TP_3,Fault,*,45 - Pot Low Overcurrent,Pot low (pin 18) current exceeds 10 mA
+Curtis_TP_4,Fault,*,42 - Throttle Wiper Low,Throttle pot wiper (pin 16) voltage is lower than the low fault threshold
+Curtis_TP_5,Fault,*,41 - Throttle Wiper High,Throttle pot wiper (pin 16) voltage is higher than the high fault threshold
+Curtis_TP_6,Fault,*,44 - Pot2 Wiper Low,Pot2 wiper (pin 17) voltage is lower than the low fault threshold
+Curtis_TP_7,Fault,*,43 - Pot2 Wiper High,Pot2 wiper (pin 17) voltage is higher than the high fault threshold
+Curtis_TP_8,Fault,*,46 - EEPROM Failure,Controller operating system tried to write to EEPROM memory and failed
+Curtis_TP_9,Fault,*,47 - HPD/Sequencing Fault,HPD (High Pedal Disable) or sequencing fault caused by incorrect sequence of KSI interlock direction and throttle inputs
+Curtis_TP_10,Fault,*,17 - Severe B+ Undervoltage,When below Brownout Voltage for 2 seconds
+Curtis_TP_11,Fault,*,18 - Severe B+ Overvoltage,Capacitor bank voltage exceeded the Severe Overvoltage limit with FET bridge enabled
+Curtis_TP_12,Fault,*,23 - Undervoltage B+ Cutback,Capacitor bank voltage dropped below the Undervoltage limit with the FET bridge enabled
+Curtis_TP_13,Fault,*,24 - Overvoltage B+ Cutback,Capacitor bank voltage exceeded the Overvoltage limit with the FET bridge enabled
+Curtis_TP_14,Fault,*,36 - SIN/COS Sensor Fault,Motor encoder phase failure detected
+Curtis_TP_15,Fault,*,22 - Controller Overtemp Cutback,Heatsink temperature exceeded 85 deg C
+Curtis_TP_16,Fault,*,15 - Controller Severe Undertemp,Heatsink temperature below -40 deg C
+Curtis_TP_17,Fault,*,16 - Controller Severe Overtemp,Heatsink temperature above +95 deg C
+Curtis_TP_18,Fault,*,31 - Coil 1 Driver Open/Short,Main contactor driver (pin 6) is either open or shorted.
+Curtis_TP_19,Fault,*,32 - Coil 2 Driver Open/Short,Driver 2 (pin 5) is either open or shorted
+Curtis_TP_20,Fault,*,33 - Coil 3 Driver Open/Short,Driver 3 (pin 4) is either open or shorted
+Curtis_TP_21,Fault,*,34 - Coil 4 Driver Open/Short,Driver 4 (pin 3) is either open or shorted
+Curtis_TP_22,Fault,*,35 - PD Open/Short,Proportional driver (pin 2) is either open or shorted
+Curtis_TP_23,Fault,*,31 - Main Open/Short,Main contactor driver (pin 6) is either open or shorted
+Curtis_TP_24,Fault,*,32 - EMBrake Open/Short,Electromagnetic brake driver (pin 5) is either open or shorted
+Curtis_TP_25,Fault,*,14 - Precharge Failed,The precharge failed to charge the capacitor bank
+Curtis_TP_26,Fault,*,26 - Digital Out 6 Open/Short,Digital Output 6 (pin 19) current exceeded 1 Amp
+Curtis_TP_27,Fault,*,27 - Digital Out 7 Open/Short,Digital Output 7 (pin 20) current exceeded 1 Amp
+Curtis_TP_28,Fault,*,12 - Controller Overcurrent,Phase current exceeded the current measurement limit
+Curtis_TP_29,Fault,*,13 - Current Sensor Fault,Controller current sensors have invalid offset reading
+Curtis_TP_30,Fault,*,28 - Motor Temp Hot Cutback,Motor temperature is at or above the Temperature Hot parameter setting
+Curtis_TP_31,Fault,*,49 - Parameter Change Fault,Adjustment of a parameter setting that requires cycling of KSI
+Curtis_TP_32,Fault,*,37 - Motor Open,Motor phase U V or W detected open
+Curtis_TP_33,Fault,*,69 - External Supply Out Of Range,The external supply current (combined current 5V and 12V ) is either greater than the upper current threshold or lower than the lower current threshold
+Curtis_TP_34,Fault,*,29 - Motor Temp Sensor Fault,Motor thermistor input (pin 8) is at the voltage rail (0 V or 10 V)
+Curtis_TP_35,Fault,*,68 - VCL Run TIME Error,Runtime VCL code error condition
+Curtis_TP_36,Fault,*,25 - +5V Supply Failure,+5V supply (pin 26) outside the 5 V �10% range
+Curtis_TP_37,Fault,*,71 - OS General,Internal controller fault detected
+Curtis_TP_38,Fault,*,72 - PDO Timeout,Time between CAN PDO messages received exceeded the PDO Timeout Period
+Curtis_TP_39,Fault,*,36 - Encoder Fault,Greater than Sin_Cos_Fault_Threshold % difference from expected value between two phases seen 5 times within one second
+Curtis_TP_40,Fault,*,73 - Stall Detected,No motor encoder movement detected
+Curtis_TP_41,Fault,*,82 - Bad Calibrations,Internal controller fault detection
+Curtis_TP_42,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_43,Fault,*,47 - Emer Rev HPD,At the conclusion of Emergency Reverse the fault was set because various inputs were not returned to neutral
+Curtis_TP_44,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_45,Fault,*,89 - Motor TYPE Fault,Motor_Type parameter is set to an illegal value
+Curtis_TP_46,Fault,*,77 - Supervisor Fault,Mismatched redundant readings or damaged Supervisor or illegal switch inputs
+Curtis_TP_47,Fault,*,87 - Motor Characterization Fault,Motor characterization failed during the motor characterization process
+Curtis_TP_48,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_49,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_50,Fault,*,91 - VCL/OS Mismatch,VCL and OS software do not match when KSI cycles
+Curtis_TP_51,Fault,*,92 - EM Brake Failed To Set,After the EM Brake was commanded to set and time has elapsed to allow the brake to fully engage - vehicle movement has been sensed
+Curtis_TP_52,Fault,*,93 - Encoder LOS,Encoder Fault (code 36) or Stall Detected (code 73) was activated
+Curtis_TP_53,Fault,*,94 - Emer Rev Timeout,Emergency Reverse was activated and ran until the EMR Timeout timer expired
+Curtis_TP_54,Fault,*,75 - Dual Severe Fault,Dual Severe Fault
+Curtis_TP_55,Fault,*,74 - Fault On Other Traction Controller,Fault On Other Traction Controller
+Curtis_TP_56,Fault,*,98 - Illegal Model Number,Illegal Model_Number variable - when KSI cycles a check is made to confirm a legal Model_Number - a fault is issued if one is not found
+Curtis_TP_57,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_58,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_59,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_60,Fault,*,99 - Parameter Mismatch,When the Dual Drive software is enabled the controller must be set to either Speed Mode Express or Speed Mode
+Curtis_TP_61,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_62,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_63,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_64,Fault,*,88 - Encoder Pulse Error Detected,Detected wrong setting of the Encoder Steps parameter
+Curtis_TP_65,Fault,*,78 - Supervisor Incompatible Fault,Incompatible software
+Curtis_TP_66,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_67,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_68,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_69,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_70,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_TP_71,Fault,*,83 - Driver Supply Fault,Internal controller fault detection
+Curtis_TP_72,Fault,*,48 - Following Error Fault,Following Error Fault
+Curtis_TP_73,Fault,*,51 - Fault,Check Manual for description on fault 51
+Curtis_TP_74,Fault,*,52 - Fault,Check Manual for description on fault 52
+Curtis_TP_75,Fault,*,53 - Fault,Check Manual for description on fault 53
+Curtis_TP_76,Fault,*,54 - Fault,Check Manual for description on fault 54
+Curtis_TP_77,Fault,*,55 - Fault,Check Manual for description on fault 55
+Curtis_TP_78,Fault,*,56 - Fault,Check Manual for description on fault 56
+Curtis_TP_79,Fault,*,57 - Fault,Check Manual for description on fault 57
+Curtis_TP_80,Fault,*,58 - Fault,Check Manual for description on fault 58
+Curtis_TP_81,Fault,*,59 - Fault,Check Manual for description on fault 59
+Curtis_TP_82,Fault,*,60 - Fault,Check Manual for description on fault 60
+Curtis_TP_83,Fault,*,61 - Fault,Check Manual for description on fault 61
+Curtis_TP_84,Fault,*,62 - Fault,Check Manual for description on fault 62
+Curtis_TP_85,Fault,*,63 - Fault,Check Manual for description on fault 63
+Curtis_TP_86,Fault,*,64 - Fault,Check Manual for description on fault 64
+Curtis_TP_87,Fault,*,65 - Fault,Check Manual for description on fault 65
+Curtis_TP_88,Fault,*,66 - Fault,Check Manual for description on fault 66
+Curtis_S_1,Fault,*,11 - Hardware Fault,Hardware error detected
+Curtis_S_2,Fault,*,12 - Controller Overcurrent 1,Controller hardware detected overcurrent condition
+Curtis_S_3,Fault,*,13 - Current Sensor Fault,Controller current sensors have invalid offset reading
+Curtis_S_4,Fault,*,14 - Precharge,Capacitor bank voltage does not complete the charge to minimum of 75% of the keyswitch voltage
+Curtis_S_5,Fault,*,15 - Controller Severe Undertemp,Controller heatsink temperature is equal to or below -40 deg C.
+Curtis_S_6,Fault,*,16 - Controller Severe Overtemp,Controller heatsink temperature is equal to or above 95 deg C
+Curtis_S_7,Fault,*,17 - Severe Undervoltage,Capacitor bank voltage (B+ terminal) less than the minimum voltage when Interlock = On. Keyswitch voltage less than the minimum voltage 
+Curtis_S_8,Fault,*,18 - Severe Overvoltage,Keyswitch or capacitor voltage (B+ terminal) greater than the maximum voltage
+Curtis_S_9,Fault,*,22 - Controller Overtemp,Controller heatsink temperature is equal to or above 85 deg C.
+Curtis_S_10,Fault,*,25 - 5V Supply Failure,5V supply is outside the 10% range
+Curtis_S_11,Fault,*,26 - 10V Supply Failure,10V supply is outside the 10% range
+Curtis_S_12,Fault,*,27 - Severe Motor Over Temp,Sensor Enable = On and steer motor temperature > programmed Temperature Max
+Curtis_S_13,Fault,*,28 - Motor Temp Hot Cutback,Sensor Enable = On and steer motor temperature > programmed Temperature Hot
+Curtis_S_14,Fault,*,29 - Motor Temp Sensor Fault,Motor temperature input is at the voltage rail (0 or 5V)
+Curtis_S_15,Fault,*,31 - Contactor Open/Short,Steer contactor driver is either open or shorted
+Curtis_S_16,Fault,*,Contact Combilift Support,Contact Combilift Support
+Curtis_S_17,Fault,*,35 - Fault Output Open/Short,External load impedance on the fault output is too low
+Curtis_S_18,Fault,*,37 - Motor Open,Motor phase is open
+Curtis_S_19,Fault,*,38 - Contactor Welded,The steer contactor tips are shorted when the contactor is supposed to be open
+Curtis_S_20,Fault,*,39 - Contactor Opened,The steer contactor was closed but detected open
+Curtis_S_21,Fault,*,41 - Command Analog1 Out of Range,Command input device�s Analog 1 input (pin 8) is out of range
+Curtis_S_22,Fault,*,42 - Command Analog3 Out of Range,Command input device�s Analog 3 input (pin 19) is out of range
+Curtis_S_23,Fault,*,43 - Feedback Analog5 Out of Range,Position feedback device�s Analog 5 input (pin 16) is out of range
+Curtis_S_24,Fault,*,44 - Feedback Analog6 Out of Range,Position feedback device�s Analog 6 input (pin 17) is out of range
+Curtis_S_25,Fault,*,46 - EEPROM CRC Fault,Error in EEPROM CRC calculation
+Curtis_S_26,Fault,*,47 - Sin Cos Command Sensor,The Analog 1 and Analog 3 inputs do not match the expected sine and cosine signals
+Curtis_S_27,Fault,*,48 - Sin Cos Feedback Sensor,The Analog 5 and Analog 6 inputs do not match the expected sine and cosine signals
+Curtis_S_28,Fault,*,49 - Parameter Change Fault,A parameter value or the software was changed that required a power cycle
+Curtis_S_29,Fault,*,51 - Interlock Switch Supervision,Interlock Input 1 = Interlock Input 3
+Curtis_S_30,Fault,*,52 - Home Switch Supervision,When the wheel position is outside the Home Switch Tolerance
+Curtis_S_31,Fault,*,53 - Home Position Not Found,During homing the home position was not found after traveling 180� (360� in the case of 360� steering) or within the programmed Homing Timeout time
+Curtis_S_32,Fault,*,54 - Home Reference Tolerance Fault,During steering the wheel position at which a home event occurred is greater than the parameter Home Switch Tolerance allows
+Curtis_S_33,Fault,*,55 - Steer Command Supervision,Steer Command differs from Steer Command2 by more than the programmed Steer Command Tolerance
+Curtis_S_34,Fault,*,56 - Wheel Position Supervision,Wheel Position differs from Wheel Position2 by more than the Wheel Position Tolerance or Wheel Position differs from Encoder3 Position by more than the Encoder Position Tolerance
+Curtis_S_35,Fault,*,69 - 5V Current Out of Range,The external load on the 5V supply is drawing either too much or too little current
+Curtis_S_36,Fault,*,71 - Software Fault 1,Software Fault 1
+Curtis_S_37,Fault,*,72 - PDO1 Timeout,Time between PDO1 messages received exceeds the PDO1 TimeoutTime
+Curtis_S_38,Fault,*,73 - Following Error,Error Tolerance is exceeded and the steered wheel is not moving in the right direction with a Wheel Speed equal to or greater than the Speed Tolerance for longer than the Following Error Time
+Curtis_S_39,Fault,*,74 - Hardware Software Mismatch,The software is not compatible with the controller hardware
+Curtis_S_40,Fault,*,75 - Parameter Conflict,Parameter settings are in conflict with each other or out of range
+Curtis_S_41,Fault,*,12 - Controller Overcurrent 2,Phase current > 120% of base current limit or exceeded the current measurement limit
+Curtis_S_42,Fault,*,39 - Contactor Did Not Close,The steer contactor did not close when commanded
+Curtis_S_43,Fault,*,71 - Software Fault 2,Software Fault 2
+Curtis_S_44,Fault,*,71 - Software Fault 3,Software Fault 3
+Curtis_S_45,Fault,*,71 - Software Fault 4,Software Fault 4
+Curtis_S_46,Fault,*,71 - Software Fault 5,Software Fault 5
+Curtis_S_47,Fault,*,36 - Motor Stalled,Stalled steer motor
+Curtis_S_48,Fault,*,47 - Sawtooth Command Sensor,The Analog 1 and Analog 3 inputs do not match the expected sawtooth waveform
+Curtis_S_49,Fault,*,48 - Sawtooth Feedback Sensor,The Analog 5 and Analog 6 inputs do not match the expected sawtooth waveform
+Curtis_S_50,Fault,*,45 - CAN Not Operational,1222 CAN NMT State did not go operational within 80 ms of interlock being applied
+Curtis_S_51,Fault,*,72 - PDO2 Timeout,Time between PDO2 messages received exceeds the PDO2 TimeoutTime
+Curtis_S_52,Fault,*,72 - PDO3 Timeout,Time between PDO3 messages received exceeds the PDO3 TimeoutTime
+Curtis_S_53,Fault,*,72 - PDO4 Timeout,Time between PDO4 messages received exceeds the PDO4 TimeoutTime
+Curtis_S_54,Fault,*,Contact Combilift Support,description text
+Curtis_S_55,Fault,*,Contact Combilift Support,description text
+Curtis_S_56,Fault,*,Contact Combilift Support,description text
+Curtis_S_57,Fault,*,Contact Combilift Support,description text
+Curtis_S_58,Fault,*,Contact Combilift Support,description text
+Curtis_S_59,Fault,*,Contact Combilift Support,description text
+Curtis_S_60,Fault,*,Contact Combilift Support,description text
+Curtis_S_61,Fault,*,Contact Combilift Support,description text
+Curtis_S_62,Fault,*,Contact Combilift Support,description text
+Curtis_S_63,Fault,*,Contact Combilift Support,description text
+Curtis_S_64,Fault,*,Contact Combilift Support,description text
+Device_2,Device,*,SRR,Steer Rear Right
+Device_3,Device,*,SRL,Steer Rear Left
+Device_4,Device,*,SFR,Steer Front Right
+Device_5,Device,*,SFL,Steer Front Left
+Device_36,Device,*,TRR,Traction Rear Right
+Device_37,Device,*,TRL,Traction Rear Left
+Device_38,Device,*,TFR,Traction Front Right
+Device_39,Device,*,TFL,Traction Front Left
+Device_40,Device,*,Pump,Pump
+Active_User,Active User,!,na,Description for Active User
+New_value,New value,1, ,New value
+KSW_hour,Keyswitch Hourmeter,0.0002778,hrs,Description for Keyswitch Hourmeter
+Inter_hour,Interlock Hourmeter,0.0002778,hrs,Description for InterLock Hourmeter
+Trac_hour,Traction Hourmeter,0.0002778,hrs,Description for Traction Hourmeter
+Current_Hourmeter,Current hourmeter value,0.0002778,hrs,Current Hourmeter value
+New_Hourmeter,New hourmeter value,0.0002778,hrs,New Hourmeter value
+New_first_service_interval,First Service Interval,0.0002778,hrs,New First Service Interval interval 
+New_standard_service_interval,Standard Service Interval,0.0002778,hrs,New Standard Service Interval 
+New_full_service_interval,Full Service Interval,0.0002778,hrs,New Full Service Interval 
+New_standard_service_interval_time,Standard Service Time Interval,1,days,New Standard Service Time Interval 
+New_full_service_interval_time,Full Service Time Interval,1,days,New Full Service Time Interval 
+First_service_remaining,First Service Remaining time,0.0002778,hrs,First Service Interval remaining time
+Standard_service_remaining,Standard Service Remaining time,0.0002778,hrs,Standard Service Interval remaining time
+Full_service_remaining,Full Service Remaining time,0.0002778,hrs,Full Service Interval remaining time
+Old_Time_Date,Old Time/Date,1,epoch,Old Time/Date value
+New_Time_Date,New Time/Date,1,epoch,New Time/Date value
+MoCAS_Code,MoCAS HI LEVEL Success,1, ,MoCAS Code
+MoCAS_Module_ID,MoCAS module ID,1, ,MoCAS Module ID
+MoCAS_Error_Code,MoCAS Error Code,1, ,MoCAS Error Code
+MoCAS_Error_Data,MoCAS Error Data,1, ,MoCAS Error Data
+CAN_Node,Device CAN Node ID,1, ,CAN Node
+Soc,Battery State of Charge,1,%,Battery State of Charge
+Vbat,Battery Voltage,1, ,Battery Voltage
+Tbat,Battery Temperature,1, ,Battery Temperature
+Bat_Action_Code,Battery Action Code,1, ,Battery Action Code
+Parameter_Code,Parameter Code,1, ,Parameter_Code
+Pre_Check_type,Pre-Operation Check Type,1, ,Pre-Operation Check Type
+Driver_Presence_Settings,Driver Presence Settings,1, ,Driver Presence Settings
+Pot_Low_Output,Pot Low Output,1, ,Pot Low Output
+Throttle_Pot_Raw,Throttle Pot Raw,1, ,Throttle Pot Raw
+Throttle_Pot_Output,Throttle Pot Output,1, ,Throttle Pot Output
+Pot2_Raw,Pot2 Raw,1, ,Pot2 Raw
+Keyswitch_Voltage,Keyswitch Voltage,0.01,V,Keyswitch Voltage
+Capacitor_Voltage,Capacitor Voltage,0.01,V,Capacitor Voltage
+UnderVoltageCutback,UnderVoltage Cutback,0.024414,%,UnderVoltage Cutback
+OverVoltageCutback,OverVoltage Cutback,0.024414,%,OverVoltage Cutback
+ControllerTempCutback,Controller Temperature Cutback,1, ,Controller Temperature Cutback
+Motor_Temperature,Motor Temperature,0.1,deg C,Motor Temperature
+Controller_Temperature,Controller Temperature,0.1,deg C,Controller Temperature
+User_Motor_Temperature,User Motor Temperature,0.1,deg C,User Motor Temperature
+MotorTempCutback,Motor Temperature Cutback,0.024414,%,Motor Temperature Cutback
+PWM1_Output,PWM1 Output,0.003052,%,PWM1 Output
+PWM2_Output,PWM2 Output,0.003052,%,PWM2 Output
+PWM3_Output,PWM3 Output,0.003052,%,PWM3 Output
+PWM4_Output,PWM4 Output,0.003052,%,PWM4 Output
+PD_Output,Proportional Driver Output,0.003052,%,Proportional Driver Output
+Precharge_State,Precharge State,1, ,Precharge State
+system_flags1,System Flags 1,1, ,System Flags 1
+Current_RMS,Current RMS,0.1,A,Current RMS
+External_Supply_Max,External Supply Max,0.25,mA,External Supply Max
+External_Supply_Min,External Supply Min,0.25,mA,External Supply Min
+Ext_Supply_Current,External Supply Current,0.25,mA,External Supply Current
+External_Load_Current,External Load Current,0.25,mA,External Load Current
+Analog2_Input,Analog2 Input,1, ,Analog2 Input
+Analog2_Filtered,Analog2 Filtered,1, ,Analog2 Filtered
+Last_VCL_Error_Module,Last VCL Error Module,1, ,Last VCL Error Module
+Last_VCL_Error,Last VCL Error,1, ,Last VCL Error
+Five_Volts_Output,Five Volts Output,0.0061095,V,Five Volts Output
+os_ver,OS Version,1, ,OS Version
+build_number,Build Number,1, ,Build Number
+article_number,Article Number,1, ,Article Number
+Encoder_Steps,Encoder Steps,1, ,Encoder Steps
+Switches,Switches,1, ,Switches
+IM_Motor_Type,IM Motor Type,1, ,IM Motor Type
+Status_3_Supervisor,Status 3 Supervisor,1, ,Status 3 Supervisor
+Motor_Characterization_Error,Motor Characterization Error,1, ,Motor Characterization Error
+Dual_Slave_Throttle_from_Master,Dual Slave Throttle from Master,1, ,Dual Slave Throttle from Master
+Dual_Slave_Brake_from_Master,Dual Slave Brake from Master,1, ,Dual Slave Brake from Master
+hardware_ver,Hardware Version,1, ,Hardware Version
+Parameter_Mismatch_Error,Parameter Mismatch Error,1, ,Parameter Mismatch Error
+Main_State,Main State,1, ,Main State
+EMBrakeState,EMBrake State,1, ,EMBrake State
+Mapped_Throttle,Mapped Throttle,0.003052,%,Mapped Throttle
+MotorSpeedA,Motor Speed A,1,rpm,Motor Speed A
+MotorSpeedB,Motor Speed B,1,rpm,Motor Speed B
+analog_that_failed,Analog that failed,1, ,Analog that failed
+switch_that_failed,Switch that failed,1, ,Switch that failed
+model_number_low,Model Number low,1, ,Model Number low
+model_number_high,Model Number high,1, ,Model Number high
+Fault_Msg,Fault,!,na,Check manual for Description
+Service Log, ,1, ,
+System Log, ,1, , 
+Battery Log, ,1, , 
+Messages, ,1, , 

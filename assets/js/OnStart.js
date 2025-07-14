@@ -78,6 +78,8 @@ async function loadLogDefinitionFile() {
   }
 }
 
+loadLogDefinitionFile();
+
 /**
  * Loads log structure dictionary into sessionStorage if not already present.
  * @param {number} accessLevelForUser - The user's access level.
@@ -136,8 +138,8 @@ async function loadDictionary3File() {
  */
 async function OnStart(accessLevelForUser = 0) {
   setDefaultLanguage();
-  await loadTranslateFile();
   await loadLogDefinitionFile();
+  await loadTranslateFile();
   await loadLogStructureFile(accessLevelForUser);
   await loadDictionary3File();
 }

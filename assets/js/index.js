@@ -138,7 +138,7 @@ function ArrayReadLogs() {
 		CurrentId++;
 		if (LogFile.split('\n')[counter][0] == '#') {
 			ConfigLine = LogFile.split('\n')[counter].replace('#', '');
-			
+
 			FileType = ConfigLine.split(';')[1];
 			TruckModel = ConfigLine.split(';')[2];
 			TruckModelP = document.createElement('p');
@@ -152,7 +152,7 @@ function ArrayReadLogs() {
 					alert('Warning: log files are from two different machines!');
 				}
 			}
-			
+
 			sessionStorage.setItem('TruckModel', TruckModel);
 
 			SerialNumberP = document.createElement('p');
@@ -501,7 +501,7 @@ function Draw_Table() {
 
 	try {
 		Full_Table.remove();
-	} catch (err) {}
+	} catch (err) { }
 
 	if (Property_to_use == 't') {
 		e_symbol = ' ';
@@ -837,6 +837,8 @@ function ExportViewable() {
 	Number_of_Rows = MasterArray.length;
 	Name_for_file = TruckModel + '_' + SerialNumber + '_' + today + '_exported_logs.csv';
 
+	alert('Export Viewable function ran');
+
 	while (draw_counter < Number_of_Rows) {
 
 		Include_this_line = false;
@@ -924,13 +926,14 @@ function ExportViewable() {
 			sessionStorage.setItem('Export_data', ExportThisFile);
 			sessionStorage.setItem('Export_filename', Name_for_file);
 		}
-
 		draw_counter++;
-
 	}
+
+	alert('start read');
+	console.log(ExportThisFile);
+	alert('end read');
 	WebdownloadFile(Name_for_file, ExportThisFile);
 }
-
 
 //MAIN FUNCTION - WHEN USER OPENS LOG FILE
 function ReadLogs() {
@@ -1079,7 +1082,6 @@ function InfoLine(id) {
 	}
 
 }
-
 
 AccessLvlCode = Number(sessionStorage.getItem('AccessLevel'));
 
@@ -1242,16 +1244,24 @@ function PopUpDefinition(CodeName, Elementid) {
  */
 function WebdownloadFile(filename, text) {
 	// Prepare the data to send
-	const data = {
-		Model: TruckModel,
-		FileName: filename,
-		SerialNumber: SerialNumber,
-		Username: sessionStorage.getItem('elogsloggedinusername'),
-		Useremail: sessionStorage.getItem('elogsloggedinemail'),
-		AccessLevel: sessionStorage.getItem('AccessLevel'),
-		ActionInput: 'Exported Results',
-		ExportData: text
-	};
+	// const data = {
+	// 	Model: TruckModel,
+	// 	FileName: filename,
+	// 	SerialNumber: SerialNumber,
+	// 	Username: sessionStorage.getItem('elogsloggedinusername'),
+	// 	Useremail: sessionStorage.getItem('elogsloggedinemail'),
+	// 	AccessLevel: sessionStorage.getItem('AccessLevel'),
+	// 	ActionInput: 'Exported Results',
+	// 	ExportData: text
+	// };
+
+
+	var blob = new Blob([text], { type: 'text/plain' });
+	var link = document.createElement('a');
+	link.href = URL.createObjectURL(blob);
+	link.download = 'myTextFile.txt';
+	link.click();
+
 }
 
 if (sessionStorage.getItem('MasterArray') == null) {
@@ -1322,7 +1332,6 @@ if (dd < 10) {
 if (mm < 10) {
 	mm = '0' + mm
 }
-
 
 today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("StarterTime").setAttribute("max", today);

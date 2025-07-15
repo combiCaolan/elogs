@@ -3,11 +3,11 @@
 /**
  * Sets the default language in sessionStorage if not already set.
  */
-function setDefaultLanguage() {
-  if (!sessionStorage.getItem('Language')) {
-    sessionStorage.setItem('Language', 'english');
-  }
-}
+// function setDefaultLanguage() {
+//   if (!sessionStorage.getItem('Language')) {
+//     sessionStorage.setItem('Language', 'english');
+//   }
+// }
 
 /**
  * Fetches a text file and returns its contents.
@@ -29,15 +29,15 @@ async function fetchTextFile(path) {
  * Loads the translation file into sessionStorage if not already present.
  * @returns {Promise<void>}
  */
-async function loadTranslateFile() {
-  if (!sessionStorage.getItem('LanguageFile')) {
-    const file = `Dictionary/${sessionStorage.getItem('Language')}/TranslateFile.txt`;
-    const text = await fetchTextFile(file);
-    if (text !== null) {
-      sessionStorage.setItem('LanguageFile', text);
-    }
-  }
-}
+// async function loadTranslateFile() {
+//   if (!sessionStorage.getItem('LanguageFile')) {
+//     const file = `Dictionary/${sessionStorage.getItem('Language')}/TranslateFile.txt`;
+//     const text = await fetchTextFile(file);
+//     if (text !== null) {
+//       sessionStorage.setItem('LanguageFile', text);
+//     }
+//   }
+// }
 
 /**
  * Loads log definition dictionaries into sessionStorage if not already present.
@@ -139,7 +139,7 @@ async function loadDictionary3File() {
 async function OnStart(accessLevelForUser = 0) {
   setDefaultLanguage();
   await loadLogDefinitionFile();
-  await loadTranslateFile();
+  // await loadTranslateFile();
   await loadLogStructureFile(accessLevelForUser);
   await loadDictionary3File();
 }

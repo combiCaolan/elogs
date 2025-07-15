@@ -178,7 +178,6 @@ function ArrayReadLogs() {
 			document.getElementById('CombiLogLine').appendChild(SerialNumberP);
 
 			document.title = 'Combilift - eLog Viewer - ' + SerialNumber;
-
 			counter++;
 		}
 

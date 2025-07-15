@@ -53,7 +53,7 @@ The startup script initializes the application by loading required dictionaries 
 **Main startup function:**
 ```javascript
 async function OnStart(accessLevelForUser = 0) {
-  setDefaultLanguage();
+//   setDefaultLanguage();
   await loadLogDefinitionFile();
   await loadTranslateFile();
   await loadLogStructureFile(accessLevelForUser);

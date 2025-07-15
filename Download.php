@@ -4,11 +4,19 @@
 <html>
 
 <head>
-	<?php include_once('includes/headContent.html'); ?>
+	<!--favicon code-->
+	<!--Favicon Start-->
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/Favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/Favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/Favicons/favicon-16x16.png">
+	<!--Favicon End-->
 </head>
 
 <body>
-	<?php include_once('includes/EmptyWebHeader.html'); ?>
+	<!--Web Header-->
+	<div class="topnav" id="myTopnav">
+	</div>
+	<!--Web Header-->
 
 	<div id="row_usr">
 		<div id="right_row">

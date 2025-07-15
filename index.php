@@ -15,7 +15,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/WebMenuStyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
@@ -25,6 +24,7 @@
             flex-wrap: nowrap;
             height: 100vh;
         }
+
         #SideMenu {
             position: relative;
             min-width: 200px;
@@ -34,6 +34,7 @@
             z-index: 2;
             background: #f8f9fa;
         }
+
         #SidebarResizeHandle {
             position: absolute;
             top: 0;
@@ -41,9 +42,10 @@
             width: 8px;
             height: 100%;
             cursor: ew-resize;
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
             z-index: 1050;
         }
+
         #MainBody {
             flex: 1 1 0%;
             min-width: 0;
@@ -57,8 +59,110 @@
 
 <body>
     <?php include_once('Verify.php'); ?>
-    <?php include_once('includes/ListLanguageOptions.php'); ?>
-    <?php include_once('includes/indexwebheader.html'); ?>
+    <?php
+    echo "<script> LanguageOptionsDir = []; </script>";
+    if ($handle = opendir('Dictionary')) {
+        while (false !== ($entry = readdir($handle))) {
+            if ($entry != "." && $entry != "..") {
+                if ($entry !== 'index.php') {
+                    echo "<script> LanguageOptionsDir.push('" . $entry . "')</script>";
+                }
+            }
+        }
+        closedir($handle);
+    } else {
+        //echo('could not find dir');
+    }
+    ?>
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+
+    <!-- Web Header (Bootstrap version) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+        <div class="container-fluid">
+            <!-- Brand/Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img id="LogoHead" src="https://support.combilift.net/elogs/assets/eLogsLogo.png" alt="Combilift Logo"
+                    height="40">
+            </a>
+            <!-- Hamburger for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- File Dropdown -->
+                    <li class="nav-item dropdown">
+                        <button class="btn nav-link dropdown-toggle HeaderFileButton" id="fileDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            File
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="fileDropdown">
+                            <li><a class="dropdown-item ReadLogFile" onclick="InitialReadFile()">Read Log File</a></li>
+                            <li><a class="dropdown-item CloseTheseLogs" onclick="CloseLogs()">Close all Logs</a></li>
+                        </ul>
+                    </li>
+                    <!-- Tools Dropdown -->
+                    <li class="nav-item dropdown">
+                        <button class="btn nav-link dropdown-toggle HeaderFileButton" id="toolsDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Tools
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item eCompassButton"
+                                    href="https://support.combilift.net/ecompass">eCompass</a></li>
+                            <li><a class="dropdown-item SupportButton"
+                                    href="https://support.combilift.net/knowledge-base">Knowledge Base</a></li>
+                        </ul>
+                    </li>
+                    <!-- Help Dropdown -->
+                    <li class="nav-item dropdown">
+                        <button class="btn nav-link dropdown-toggle" id="HeaderHelpButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Help
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="HeaderHelpButton">
+                            <li><a class="dropdown-item SupportButton" href="https://support.combilift.net">Combilift
+                                    Technical Support</a></li>
+                            <li><a class="dropdown-item SupportButton" href="https://combilift.com/en/contact/">Contact
+                                    Support</a></li>
+                            <li><a class="dropdown-item SupportButton" href="https://combilift.com/en/about-us/">About
+                                    Us</a></li>
+                        </ul>
+                    </li>
+                    <!-- User Dropdown -->
+                    <li class="nav-item dropdown">
+                        <button class="btn nav-link dropdown-toggle" id="HeaderUserButtonReal" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="far fa-user"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="HeaderUserButtonReal">
+                            <li>
+                                <button class="dropdown-item" id="DownloadButton">
+                                    <p id="FixedUsernameText" class="mb-0">User</p>
+                                    <p id="UsernameLocal" class="mb-0"></p>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item" id="DownloadButton">
+                                    <p id="FixedAccessLevelText" class="mb-0">Access Level</p>
+                                    <p id="AccessLevel" class="mb-0"></p>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item" id="DownloadButton"
+                                    onclick="sessionStorage.clear(); location.href=`http://support.combilift.net/wp-login.php?action=logout`;">
+                                    <p id="FixedLogoutText" class="mb-0">Logout</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Web Header -->
 
     <div class="container-fluid" id="Wrapper">
         <div class="row">
@@ -162,6 +266,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Dialogs -->
-    <?php include_once('includes/dialog.html'); ?>
+    <div id="PopUpsDiv" style="display:none;">
+        <div id="DefaultFileList" title="New File">
+            <div id="DefaultFilesDiv" style="background: white; width: 100%;">
+                <div id="OpenForm">
+                    <div id="FileOptionBlock">
+                        <label div id="ChooseLogFileLabel">Choose your log file</label>
+                        <input type="submit" name="logFile" class="LogInput" onclick="readLogs()"
+                            value="Choose your log file" required="required" />
+                        <select class="LogInput" disabled="disabled" id="DropDownLog" required="required">
+                            <option value="0">--Please Choose --</option>
+                            <option value="1">Log_Msg_Centre</option>
+                            <option value="2">Log_System</option>
+                            <option value="3">Log_User</option>
+                        </select>
+
+                        <br />
+
+                        <input type="submit" value="Open Logs" disabled="disabled" class="LogInput"
+                            id="LogInputButtonCall" onclick="ReadLogs()" />
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+
+        <div id="SearchDialog" title="Search Logs">
+            <input type="text" id="SearchInput" placeholder="Search Trough Logs">
+        </div>
+
+        <div id="ChangeLanguageDialog" title="Change Language">
+        </div>
+    </div>
 </body>
+
 </html>

@@ -126,9 +126,6 @@
 }
 
 
-#SearchFilterBTN, #ClearFilterBTN{
-	margin:5px;
-}
 
 
 .InfoAboutLabel{
@@ -538,8 +535,6 @@ td {
 
 #InfoAboutLine {
 	border: 1px solid black;
-	height: 150px;
-	overflow: auto;
 	padding: 5px;
 }
 
@@ -652,4 +647,9 @@ table th {
 	padding: 20px;
 	z-index: 1;
 	background: #fff;
+}
+
+#ExportResultsDiv input {
+	background: linear-gradient(180deg, #0d6938 0, #07351c) !important;
+	color: white!important;
 }

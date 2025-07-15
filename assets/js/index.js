@@ -38,7 +38,6 @@ function CloseLogs() {
 }
 
 function NewCode() {
-
 	try {
 		LogStructure_Dict = JSON.parse(sessionStorage.getItem('LogStructure_Dict'));
 	}
@@ -53,7 +52,6 @@ function NewCode() {
 		MasterArray = JSON.parse(sessionStorage.getItem('MasterArray'));
 	}
 	ArrayReadLogs();
-
 }
 
 
@@ -121,106 +119,155 @@ function Order_by_property(new_property) {
  * Reads logs from sessionStorage, parses them, registers the log via AJAX, and populates MasterArray.
  * No hidden form or submit is used.
  */
-async function ArrayReadLogs() {
-	let LogFile_ini = sessionStorage.getItem('Log');
-	let counter = 0;
-	let LogFile;
-	let CurrentId = 0;
-	let FileType = null;
+function ArrayReadLogs() {
 
-	// Check for header and prepend if missing
-	if (LogFile_ini.split('\n')[counter][0] !== '#') {
+	LogFile_ini = sessionStorage.getItem('Log');
+
+	counter = 0;
+
+	if (LogFile_ini.split('\n')[counter][0] != '#') {
 		alert('Warning: Machine model and serial number not available!');
-		if (LogFile_ini.split('\n')[0].split(';')[7] !== 'undefined') {
+		if (LogFile_ini.split('\n')[0].split(';')[7] != 'undefined') {
 			LogFile = '#0;500;na;0;0;0;\n' + sessionStorage.getItem('Log');
-		} else {
+		}
+		else {
 			LogFile = '#0;200;na;0;0;0;\n' + sessionStorage.getItem('Log');
 		}
-	} else {
+	}
+	else {
 		LogFile = sessionStorage.getItem('Log');
 	}
 
-	// Validate header again
-	if (LogFile.split('\n')[counter][0] !== '#') {
+	if (LogFile.split('\n')[counter][0] != '#') {
 		alert('Warning: log file header format missing!');
 		location.reload();
 		return;
 	}
 
-	MasterArray = [];
-	let logRegistered = false;
-
 	while (LogFile.split('\n')[counter]) {
+
 		CurrentId++;
-		const line = LogFile.split('\n')[counter];
 
-		if (line[0] === '#') {
-			const ConfigLine = line.replace('#', '');
-			const FileType = ConfigLine.split(';')[1];
+		if (LogFile.split('\n')[counter][0] == '#') {
+			ConfigLine = LogFile.split('\n')[counter].replace('#', '');
+
+			FileType = ConfigLine.split(';')[1];
 			TruckModel = ConfigLine.split(';')[2];
+			TruckModelP = document.createElement('p');
+			TruckModelP.setAttribute('id', 'LogInfoText');
+			TruckModelP.innerHTML = 'Machine Model : ' + TruckModel;
 			SerialNumber = ConfigLine.split(';')[3];
-
-			// Store model and serial number in sessionStorage
-			sessionStorage.setItem('TruckModel', TruckModel);
 			if (sessionStorage.getItem('SerialNumber') == null) {
 				sessionStorage.setItem('SerialNumber', SerialNumber);
-			} else if (Number(SerialNumber) !== Number(sessionStorage.getItem('SerialNumber'))) {
-				alert('Warning: log files are from two different machines!');
+			} else {
+				if (Number(SerialNumber) != Number(sessionStorage.getItem('SerialNumber'))) {
+					alert('Warning: log files are from two different machines!');
+					//return;
+					//location.reload();
+				}
 			}
 
-			// Update UI
+			sessionStorage.setItem('TruckModel', TruckModel);
+
+			SerialNumberP = document.createElement('p');
+			SerialNumberP.setAttribute('id', 'LogInfoText');
+			SerialNumberP.innerHTML = 'Truck Serial Number : ' + SerialNumber;
+
 			document.getElementById('CombiLogLine').innerHTML = '';
-			const truckModelP = document.createElement('p');
-			truckModelP.id = 'LogInfoText';
-			truckModelP.innerHTML = 'Machine Model : ';
-			const serialNumberP = document.createElement('p');
-			serialNumberP.id = 'LogInfoText';
-			serialNumberP.innerHTML = 'Truck Serial Number : ' + SerialNumber;
-			document.getElementById('CombiLogLine').appendChild(truckModelP);
+			document.getElementById('CombiLogLine').appendChild(TruckModelP);
+			document.getElementById('CombiLogLine').appendChild(SerialNumberP);
 
-			const truckModelPresult = document.createElement('p');
-			truckModelPresult.id = 'LogInfoTextValue';
-			truckModelPresult.innerHTML = TruckModel;
-			document.getElementById('CombiLogLine').appendChild(truckModelPresult);
-
-			document.getElementById('CombiLogLine').appendChild(serialNumberP);
 			document.title = 'Combilift - eLog Viewer - ' + SerialNumber;
 
-			// Register log open event via AJAX (only once)
-			if (!logRegistered) {
-				const logOpenData = {
-					Model: TruckModel,
-					FileName: sessionStorage.getItem('FileName'),
-					SerialNumber: SerialNumber,
-					Username: sessionStorage.getItem('elogsloggedinusername'),
-					Useremail: sessionStorage.getItem('elogsloggedinemail'),
-					AccessLevel: sessionStorage.getItem('AccessLevel'),
-					ActionInput: 'Opened File ' + FileType
-				};
-			}
-
 			counter++;
-			continue;
 		}
 
-		// --- Parsing the data ---
-		let ActionCode = Number(LogFile.split('\n')[counter].split(';')[1]);
-		let utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
-		let Line = {};
+		ActionCode = Number(LogFile.split('\n')[counter].split(';')[1]);
+		utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
+		Line = {};
 		Line["t"] = utcSeconds;
 		Line["tl"] = 'TimeStamp';
 
+		//FORM FOR LOG REGISTRATION
+
+		EmptyDiv = document.createElement('div');
+		EmptyDiv.setAttribute('style', 'display:none;')
+
+		Form = document.createElement('form');
+		Form.setAttribute('action', 'includes/openfile.php');
+		Form.setAttribute('method', 'POST');
+		Form.setAttribute('name', 'LogRegForm');
+
+		Model = document.createElement('input');
+		Model.type = 'text';
+		Model.setAttribute('name', 'Model');
+		Model.value = TruckModel;
+
+		Form.appendChild(Model);
+
+		FileName = document.createElement('input');
+		FileName.type = 'text';
+		FileName.setAttribute('name', 'FileName');
+
+		SerialNumber_form = document.createElement('input');
+		SerialNumber_form.type = 'text';
+		SerialNumber_form.setAttribute('name', 'SerialNumber');
+		SerialNumber_form.value = SerialNumber;
+
+		Form.appendChild(SerialNumber_form);
+
+		UserName = document.createElement('input');
+		UserName.type = 'text';
+		UserName.setAttribute('name', 'Username');
+		UserName.value = sessionStorage.getItem('elogsloggedinusername');
+
+		Form.appendChild(UserName);
+
+		Useremail = document.createElement('input');
+		Useremail.type = 'text';
+		Useremail.setAttribute('name', 'Useremail');
+		Useremail.value = sessionStorage.getItem('elogsloggedinemail');
+
+		Form.appendChild(Useremail);
+
+		AccessLevel = document.createElement('input');
+		AccessLevel.type = 'text';
+		AccessLevel.setAttribute('name', 'AccessLevel');
+		AccessLevel.value = sessionStorage.getItem('AccessLevel');
+
+		Form.appendChild(AccessLevel);
+
+		ActionInput = document.createElement('input');
+		ActionInput.type = 'text';
+		ActionInput.setAttribute('name', 'ActionInput');
+		ActionInput.value = 'Opened File' + FileType;
+
+		Form.appendChild(ActionInput);
+
+		SubmitForm = document.createElement('input');
+		SubmitForm.type = 'submit';
+
+		Form.appendChild(SubmitForm);
+
+		EmptyDiv.appendChild(Form);
+		// document.getElementById('myTopnav').appendChild(EmptyDiv);
+
+
+		//Parsing the data		
 		if (FileType != '500') {
-			let Scale = ScaleDictionary[ActionCode];
-			let Units = UnitsDictionary[ActionCode];
-			let Description = DescriptionDictionary[ActionCode];
-			let ShowValue, Value;
+
+			Scale = ScaleDictionary[ActionCode];
+			Units = UnitsDictionary[ActionCode];
+			Description = DescriptionDictionary[ActionCode];
 
 			try {
 				if (Scale[0] == '*') {
+					//means do the Log Key
 					ShowValue = Units;
 				} else {
+					//Value is going to be the original value from log file
 					Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
+
 					ShowValue = Value.toFixed(2) + ' ' + Units;
 				}
 			} catch (err) {
@@ -231,31 +278,29 @@ async function ArrayReadLogs() {
 			Line["el"] = 'Log Event';
 
 			ShowValue = undefined;
-			let fourthCounter = 2;
+
+			fourthCounter = 2;
 
 			while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
-				// try {
-				//console.log(ActionCode);
-				//console.log(fourthCounter);
 				Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
 				Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
 				Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-				// } catch (error) {
-				// 	alert(ActionCode);
-				// 	return;
-				// }
 				try {
 					if (Scale[0] == '*') {
+						//means do the Log Key
 						ShowValue = Units;
 					} else {
 						if (Scale[0] == '!') {
 							KeyVariable = LogStructure_Dict[ActionCode][fourthCounter] + '_' + LogFile.split('\n')[counter].split(';')[fourthCounter];
 							ShowValue = LogKey[KeyVariable];
 						} else {
+							//Value is going to be the original value from log file
 							Value = Number(LogFile.split('\n')[counter].split(';')[fourthCounter]) * Number(Scale);
+
 							ShowValue = Value.toFixed(2) + ' ' + Units;
 						}
-						let property_str = 'v' + fourthCounter;
+
+						property_str = 'v' + fourthCounter;
 						Line[property_str] = ShowValue;
 						property_str = 'vl' + fourthCounter;
 						Line[property_str] = Label;
@@ -266,19 +311,18 @@ async function ArrayReadLogs() {
 				fourthCounter++;
 			}
 
+			//Creating Description 
 			Line["desc"] = Description;
 
-			//console.log(ActionCode);
 			if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
 				MasterArray.push(Line);
 			}
 
 		} else {
-			// --- FileType == '500' logic ---
-			const TypeOne = [36, 37, 38, 39, 40];
-			const TypeTwo = [2, 3, 4, 5];
+			TypeOne = [36, 37, 38, 39, 40];
+			TypeTwo = [2, 3, 4, 5];
 
-			let DeviceId = Number(LogFile.split('\n')[counter].split(';')[1]);
+			DeviceId = Number(LogFile.split('\n')[counter].split(';')[1]);
 			if (TypeOne.includes(DeviceId)) {
 				ActionCode = 'Curtis_TP' + '_' + LogFile.split('\n')[counter].split(';')[2];
 			} else if (TypeTwo.includes(DeviceId)) {
@@ -288,21 +332,24 @@ async function ArrayReadLogs() {
 			}
 
 			if (ActionCode == 'Curtis_S') {
-				let bit_ptr = 0;
+				bit_ptr = 0;
+
 				while (bit_ptr < 32) {
-					let bit_mask = 2 ** bit_ptr;
-					let masked_result = LogFile.split('\n')[counter].split(';')[4] & bit_mask;
+					bit_mask = 2 ** bit_ptr;
+					masked_result = LogFile.split('\n')[counter].split(';')[4] & bit_mask;
 					ActionCode = 'Curtis_S';
 					if (masked_result > 0) {
-						let bit_ptr_final = bit_ptr + 1;
+						//fault is valid
+						bit_ptr_final = bit_ptr + 1;
 						ActionCode = ActionCode + '_' + bit_ptr_final;
 
-						let Scale = ScaleDictionary[ActionCode];
-						let Units = UnitsDictionary[ActionCode];
-						let Description = DescriptionDictionary[ActionCode];
+						Scale = ScaleDictionary[ActionCode];
+						Units = UnitsDictionary[ActionCode];
+						Description = DescriptionDictionary[ActionCode];
 
 						try {
 							if (Scale[0] == '*') {
+								//means do the Log Key
 								ShowValue = Units;
 							} else {
 								ShowValue = ' invalid ';
@@ -316,10 +363,12 @@ async function ArrayReadLogs() {
 
 						ShowValue = undefined;
 
-						let Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+						//Device
+						Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
 						Line["d"] = UnitsDictionary[Device_str];
 						Line["dl"] = 'Device';
 
+						//Creating Description 
 						Line["desc"] = Description;
 
 						if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
@@ -328,24 +377,29 @@ async function ArrayReadLogs() {
 						Line = {};
 						Line["t"] = utcSeconds;
 						Line["tl"] = 'TimeStamp';
+
 					}
 					bit_ptr++;
+
 				}
 
 				bit_ptr = 0;
+
 				while (bit_ptr < 32) {
-					let bit_mask = 2 ** bit_ptr;
-					let masked_result = LogFile.split('\n')[counter].split(';')[5] & bit_mask;
+					bit_mask = 2 ** bit_ptr;
+					masked_result = LogFile.split('\n')[counter].split(';')[5] & bit_mask;
 					ActionCode = 'Curtis_S';
 					if (masked_result > 0) {
-						let bit_ptr_final = bit_ptr + 33;
+						//fault is valid
+						bit_ptr_final = bit_ptr + 33;
 						ActionCode = ActionCode + '_' + bit_ptr_final;
-						let Scale = ScaleDictionary[ActionCode];
-						let Units = UnitsDictionary[ActionCode];
-						let Description = DescriptionDictionary[ActionCode];
+						Scale = ScaleDictionary[ActionCode];
+						Units = UnitsDictionary[ActionCode];
+						Description = DescriptionDictionary[ActionCode];
 
 						try {
 							if (Scale[0] == '*') {
+								//means do the Log Key
 								ShowValue = Units;
 							} else {
 								ShowValue = ' invalid ';
@@ -359,10 +413,12 @@ async function ArrayReadLogs() {
 
 						ShowValue = undefined;
 
-						let Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+						//Device
+						Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
 						Line["d"] = UnitsDictionary[Device_str];
 						Line["dl"] = 'Device';
 
+						//Creating Description 
 						Line["desc"] = Description;
 
 						if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
@@ -371,19 +427,24 @@ async function ArrayReadLogs() {
 						Line = {};
 						Line["t"] = utcSeconds;
 						Line["tl"] = 'TimeStamp';
+
 					}
 					bit_ptr++;
+
 				}
 
-			} else {
-				let Scale = ScaleDictionary[ActionCode];
-				let Units = UnitsDictionary[ActionCode];
-				let Description = DescriptionDictionary[ActionCode];
+			}
+			else {
+				Scale = ScaleDictionary[ActionCode];
+				Units = UnitsDictionary[ActionCode];
+				Description = DescriptionDictionary[ActionCode];
 
 				try {
 					if (Scale[0] == '*') {
+						//means do the Log Key
 						ShowValue = Units;
 					} else {
+						//Value is going to be the original value from log file
 						Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
 						ShowValue = Value.toFixed(2) + ' ' + Units;
 					}
@@ -396,31 +457,33 @@ async function ArrayReadLogs() {
 
 				ShowValue = undefined;
 
-				let Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+				//Device
+				Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+
 				Line["d"] = UnitsDictionary[Device_str];
 				Line["dl"] = 'Device';
 
-				let fourthCounter = 2;
+				fourthCounter = 2;
+
 				while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
-					try {
-						Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-						Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-						Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-					} catch (error) {
-						console.log(error);
-					}
+					Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+					Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+					Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
 					try {
 						if (Scale[0] == '*') {
+							//means do the Log Key
 							ShowValue = Units;
 						} else {
 							if (Scale[0] == '!') {
 								KeyVariable = LogStructure_Dict[ActionCode][fourthCounter] + '_' + LogFile.split('\n')[counter].split(';')[fourthCounter];
 								ShowValue = LogKey[KeyVariable];
 							} else {
+								//Value is going to be the original value from log file
 								Value = Number(LogFile.split('\n')[counter].split(';')[fourthCounter + 2]) * Number(Scale);
+
 								ShowValue = Value.toFixed(2) + ' ' + Units;
 							}
-							let property_str = 'v' + fourthCounter;
+							property_str = 'v' + fourthCounter;
 							Line[property_str] = ShowValue;
 							property_str = 'vl' + fourthCounter;
 							Line[property_str] = Label;
@@ -431,20 +494,23 @@ async function ArrayReadLogs() {
 					fourthCounter++;
 				}
 
+				//Creating Description 
 				Line["desc"] = Description;
 
 				if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
 					MasterArray.push(Line);
 				}
 				Line = {};
+
 			}
 		}
 		counter++;
 	}
 
 	sessionStorage.setItem('MasterArray', JSON.stringify(MasterArray));
-	// No form submission needed!
+	SubmitForm.click();
 }
+
 
 function Draw_Table() {
 
@@ -453,9 +519,7 @@ function Draw_Table() {
 
 	try {
 		Full_Table.remove();
-	} catch (err) {
-
-	}
+	} catch (err) {}
 
 	if (Property_to_use == 't') {
 		e_symbol = ' ';
@@ -1313,21 +1377,21 @@ today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("StarterTime").setAttribute("max", today);
 document.getElementById("EndTime").setAttribute("max", today);
 
-function ListLanguageDir() {
-	counter = 0;
-	while (LanguageOptionsDir[counter] !== undefined) {
-		a = document.createElement('button');
-		a.innerHTML = LanguageOptionsDir[counter];
-		Path = sessionStorage.getItem('ServerPath') + '/ecompass/Truck_Default_Files/' + LanguageOptionsDir[counter];
-		a.setAttribute("onclick", "readDefaultFile('" + Path + "')");
-		a.setAttribute("style", "margin:10px;");
+// function ListLanguageDir() {
+// 	counter = 0;
+// 	while (LanguageOptionsDir[counter] !== undefined) {
+// 		a = document.createElement('button');
+// 		a.innerHTML = LanguageOptionsDir[counter];
+// 		Path = sessionStorage.getItem('ServerPath') + '/ecompass/Truck_Default_Files/' + LanguageOptionsDir[counter];
+// 		a.setAttribute("onclick", "readDefaultFile('" + Path + "')");
+// 		a.setAttribute("style", "margin:10px;");
 
-		document.getElementById('ChangeLanguageDialog').appendChild(a);
-		counter++;
-	}
-}
+// 		document.getElementById('ChangeLanguageDialog').appendChild(a);
+// 		counter++;
+// 	}
+// }
 
-window.onload = ListLanguageDir;
+// window.onload = ListLanguageDir;
 
 document.addEventListener('DOMContentLoaded', () => {
 	const sidebar = document.getElementById('SideMenu');

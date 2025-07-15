@@ -17,44 +17,6 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        /* Flexbox layout for sidebar and main content */
-        #Wrapper .row {
-            display: flex;
-            flex-wrap: nowrap;
-            height: 100vh;
-        }
-
-        #SideMenu {
-            position: relative;
-            min-width: 200px;
-            max-width: 600px;
-            width: 250px;
-            flex-shrink: 0;
-            z-index: 2;
-            background: #f8f9fa;
-        }
-
-        #SidebarResizeHandle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 8px;
-            height: 100%;
-            cursor: ew-resize;
-            background: rgba(0, 0, 0, 0.05);
-            z-index: 1050;
-        }
-
-        #MainBody {
-            flex: 1 1 0%;
-            min-width: 0;
-            overflow-x: auto;
-            padding: 20px;
-            z-index: 1;
-            background: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -77,9 +39,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
         <div class="container-fluid">
             <!-- Brand/Logo -->
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img id="LogoHead" src="assets/img/eLogsLogo.png"
-                    alt="Combilift Logo" height="40">
+            <a class="navbar-brand d-flex align-items-center">
+                <img id="LogoHead" src="assets/img/eLogsLogo.png" alt="Combilift Logo" height="40"
+                    onclick="location.reload()">
             </a>
             <!-- Hamburger for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"

@@ -235,8 +235,8 @@ async function ArrayReadLogs() {
 
 			while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
 				// try {
-				console.log(ActionCode);
-				console.log(fourthCounter);
+				//console.log(ActionCode);
+				//console.log(fourthCounter);
 				Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
 				Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
 				Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
@@ -268,7 +268,7 @@ async function ArrayReadLogs() {
 
 			Line["desc"] = Description;
 
-			console.log(ActionCode);
+			//console.log(ActionCode);
 			if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
 				MasterArray.push(Line);
 			}
@@ -1065,6 +1065,7 @@ function InitialReadFile(Type) {
 		// here we tell the reader what to do when it's done reading
 		reader.onload = readerEvent => {
 			var data = readerEvent.target.result;
+			console.log(data);
 			// this is the content of the file
 			if (input.value.split('.')[input.value.split('.').length - 1] != 'csv') {
 				alert('Please only open valid a log file');

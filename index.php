@@ -70,19 +70,16 @@
             }
         }
         closedir($handle);
-    } else {
-        //echo('could not find dir');
     }
     ?>
-    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 
     <!-- Web Header (Bootstrap version) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
         <div class="container-fluid">
             <!-- Brand/Logo -->
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img id="LogoHead" src="https://support.combilift.net/elogs/assets/eLogsLogo.png" alt="Combilift Logo"
-                    height="40">
+                <img id="LogoHead" src="assets/img/eLogsLogo.png"
+                    alt="Combilift Logo" height="40">
             </a>
             <!-- Hamburger for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"

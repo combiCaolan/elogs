@@ -235,11 +235,11 @@ async function ArrayReadLogs() {
 
 			while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
 				// try {
-					console.log(ActionCode);
-					console.log(fourthCounter);
-					Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-					Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-					Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+				console.log(ActionCode);
+				console.log(fourthCounter);
+				Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+				Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+				Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
 				// } catch (error) {
 				// 	alert(ActionCode);
 				// 	return;
@@ -1045,8 +1045,8 @@ AccessLvlCode = Number(sessionStorage.getItem('AccessLevel'));
 $(document).ready(function () {
 	$("#SearchInput").on("keyup", function () {
 		var value = $(this).val().toLowerCase();
-		$("#TableId tr").filter(function () {
-			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		document.querySelectorAll("#TableId tr").forEach(tr => {
+			tr.style.display = tr.textContent.toLowerCase().includes(value) ? '' : 'none';
 		});
 	});
 });
@@ -1139,8 +1139,8 @@ function ClearFilterTime() {
 //Makes elements that do not meet Query invisible
 function FilterSearch(Query) {
 	var value = Query.toLowerCase();
-	$("#TableId tr").filter(function () {
-		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+	document.querySelectorAll("#TableId tr").forEach(tr => {
+		tr.style.display = tr.textContent.toLowerCase().includes(value) ? '' : 'none';
 	});
 }
 
@@ -1268,7 +1268,7 @@ else {
 		TruckModelP.innerHTML = 'Machine Model : ';
 
 		TruckModelResult = document.createElement('p');
-		TruckModelResult.setAttribute('id','LogInfoText');
+		TruckModelResult.setAttribute('id', 'LogInfoText');
 		TruckModelResult.innerHTML = TruckModel;
 
 		SerialNumberP = document.createElement('p');
@@ -1277,7 +1277,7 @@ else {
 
 		SerialNumberPValue = document.createElement('p');
 		SerialNumberPValue.setAttribute('id', 'LogInfoText');
-		SerialNumberPValue.innerHTML =SerialNumber;
+		SerialNumberPValue.innerHTML = SerialNumber;
 
 		document.getElementById('CombiLogLine').innerHTML = '';
 		document.getElementById('CombiLogLine').appendChild(TruckModelP);
@@ -1329,28 +1329,28 @@ function ListLanguageDir() {
 window.onload = ListLanguageDir;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.getElementById('SideMenu');
-    const handle = document.getElementById('SidebarResizeHandle');
-    let isResizing = false;
+	const sidebar = document.getElementById('SideMenu');
+	const handle = document.getElementById('SidebarResizeHandle');
+	let isResizing = false;
 
-    handle.addEventListener('mousedown', function(e) {
-        isResizing = true;
-        document.body.style.cursor = 'ew-resize';
-        e.preventDefault();
-    });
+	handle.addEventListener('mousedown', function (e) {
+		isResizing = true;
+		document.body.style.cursor = 'ew-resize';
+		e.preventDefault();
+	});
 
-    document.addEventListener('mousemove', function(e) {
-        if (!isResizing) return;
-        let newWidth = e.clientX - sidebar.getBoundingClientRect().left;
-        newWidth = Math.max(200, Math.min(newWidth, 600)); // min/max width
-        sidebar.style.width = newWidth + 'px';
-    });
+	document.addEventListener('mousemove', function (e) {
+		if (!isResizing) return;
+		let newWidth = e.clientX - sidebar.getBoundingClientRect().left;
+		newWidth = Math.max(200, Math.min(newWidth, 600)); // min/max width
+		sidebar.style.width = newWidth + 'px';
+	});
 
-    document.addEventListener('mouseup', function() {
-        if (isResizing) {
-            isResizing = false;
-            document.body.style.cursor = '';
-        }
-    });
+	document.addEventListener('mouseup', function () {
+		if (isResizing) {
+			isResizing = false;
+			document.body.style.cursor = '';
+		}
+	});
 });
 

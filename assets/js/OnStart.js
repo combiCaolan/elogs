@@ -137,7 +137,7 @@ async function loadDictionary3File() {
  * @returns {Promise<void>}
  */
 async function OnStart(accessLevelForUser = 0) {
-  setDefaultLanguage();
+  // setDefaultLanguage();
   await loadLogDefinitionFile();
   // await loadTranslateFile();
   await loadLogStructureFile(accessLevelForUser);

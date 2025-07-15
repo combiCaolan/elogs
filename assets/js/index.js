@@ -16,16 +16,13 @@ t_symbol = '+';
 e_symbol = '+';
 d_symbol = '+';
 
-
 /**START**/
 document.getElementById('UsernameLocal').innerHTML = sessionStorage.getItem('elogsloggedinusername');
 document.getElementById('AccessLevel').innerHTML = sessionStorage.getItem('AccessLevel_disp');
 /**END**/
 
-
 //Close These Logs Logic
 function CloseLogs() {
-
 	sessionStorage.removeItem("Log");
 	sessionStorage.removeItem("LogStructure");
 	sessionStorage.removeItem("LanguageFile");
@@ -81,7 +78,6 @@ function compareValues(key, order = 'asc') {
 
 function Order_by_property(new_property) {
 	Property_to_use = new_property;
-
 	if (Property_to_use == 't') {
 		if (t_order == 'asc') {
 			t_order = 'desc';
@@ -108,11 +104,8 @@ function Order_by_property(new_property) {
 		t_order = 'desc';
 		order_is = t_order;
 	}
-
 	MasterArray.sort(compareValues(Property_to_use, order_is));
-
 	Draw_Table();
-
 }
 
 /**
@@ -120,11 +113,8 @@ function Order_by_property(new_property) {
  * No hidden form or submit is used.
  */
 function ArrayReadLogs() {
-
 	LogFile_ini = sessionStorage.getItem('Log');
-
 	counter = 0;
-
 	if (LogFile_ini.split('\n')[counter][0] != '#') {
 		alert('Warning: Machine model and serial number not available!');
 		if (LogFile_ini.split('\n')[0].split(';')[7] != 'undefined') {
@@ -145,12 +135,10 @@ function ArrayReadLogs() {
 	}
 
 	while (LogFile.split('\n')[counter]) {
-
 		CurrentId++;
-
 		if (LogFile.split('\n')[counter][0] == '#') {
 			ConfigLine = LogFile.split('\n')[counter].replace('#', '');
-
+			
 			FileType = ConfigLine.split(';')[1];
 			TruckModel = ConfigLine.split(';')[2];
 			TruckModelP = document.createElement('p');
@@ -162,11 +150,9 @@ function ArrayReadLogs() {
 			} else {
 				if (Number(SerialNumber) != Number(sessionStorage.getItem('SerialNumber'))) {
 					alert('Warning: log files are from two different machines!');
-					//return;
-					//location.reload();
 				}
 			}
-
+			
 			sessionStorage.setItem('TruckModel', TruckModel);
 
 			SerialNumberP = document.createElement('p');
@@ -188,7 +174,6 @@ function ArrayReadLogs() {
 		Line["tl"] = 'TimeStamp';
 
 		//FORM FOR LOG REGISTRATION
-
 		EmptyDiv = document.createElement('div');
 		EmptyDiv.setAttribute('style', 'display:none;')
 
@@ -249,8 +234,6 @@ function ArrayReadLogs() {
 		Form.appendChild(SubmitForm);
 
 		EmptyDiv.appendChild(Form);
-		// document.getElementById('myTopnav').appendChild(EmptyDiv);
-
 
 		//Parsing the data		
 		if (FileType != '500') {
@@ -826,7 +809,6 @@ function Draw_Table() {
 			}
 		}
 
-
 		//append row to the table
 		tr.setAttribute('onclick', 'if(document.getElementsByClassName("clickedon")[0] != undefined){ document.getElementsByClassName("clickedon")[0].removeAttribute("class"); try{ this.setAttribute("class","clickedon"); }catch(err){} }else{ this.setAttribute("class","clickedon"); } InfoLine("' + draw_counter + '");');
 
@@ -844,12 +826,8 @@ function Draw_Table() {
 				Full_Table.appendChild(tr);
 			}
 		}
-
 		draw_counter++;
-
 	} // end while loop
-
-	Translate();
 }// end function
 
 //Export Results Logic
@@ -1276,29 +1254,6 @@ function WebdownloadFile(filename, text) {
 	};
 }
 
-//Translates Page
-function Translate() {
-	try {
-		TranslateFile = sessionStorage.getItem('LanguageFile');
-		counter = 0;
-		while (TranslateFile.split('\n')[counter] != undefined) {
-			try {
-				document.getElementById(TranslateFile.split('\n')[counter].split(':')[0]).innerHTML = TranslateFile.split('\n')[counter].split(':')[1];
-			} catch (err) {
-				if (document.getElementsByClassName(TranslateFile.split('\n')[counter].split(':')[0])[0] != null) {
-					document.getElementsByClassName(TranslateFile.split('\n')[counter].split(':')[0])[0].innerHTML = TranslateFile.split('\n')[counter].split(':')[1];
-				}
-
-			}
-			counter++;
-		}
-	} catch (err) {
-		console.log('Translate Function Not Working');
-	}
-}
-
-
-
 if (sessionStorage.getItem('MasterArray') == null) {
 	//Removing ability for user to click Close these Logs - before Logs have been opened
 	document.getElementsByClassName('CloseTheseLogs')[0].removeAttribute('onclick');
@@ -1354,9 +1309,6 @@ else {
 	}
 
 }
-
-Translate();
-
 //Start setting values to time inputs
 var today = new Date();
 var dd = today.getDate();
@@ -1375,22 +1327,6 @@ if (mm < 10) {
 today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("StarterTime").setAttribute("max", today);
 document.getElementById("EndTime").setAttribute("max", today);
-
-// function ListLanguageDir() {
-// 	counter = 0;
-// 	while (LanguageOptionsDir[counter] !== undefined) {
-// 		a = document.createElement('button');
-// 		a.innerHTML = LanguageOptionsDir[counter];
-// 		Path = sessionStorage.getItem('ServerPath') + '/ecompass/Truck_Default_Files/' + LanguageOptionsDir[counter];
-// 		a.setAttribute("onclick", "readDefaultFile('" + Path + "')");
-// 		a.setAttribute("style", "margin:10px;");
-
-// 		document.getElementById('ChangeLanguageDialog').appendChild(a);
-// 		counter++;
-// 	}
-// }
-
-// window.onload = ListLanguageDir;
 
 document.addEventListener('DOMContentLoaded', () => {
 	const sidebar = document.getElementById('SideMenu');

@@ -1132,7 +1132,7 @@ function InitialReadFile(Type) {
 			setTimeout(() => {
 				document.getElementById('InstructionsText').style.display = 'none';
 				Draw_Table();
-				document.getElementsByClassName('ExportResultsButton')[0].removeAttribute('disabled');
+				document.getElementsByClassName('ExportResultsButton')[0].removeAttribute('disabled')
 			}, 1000); // 1 seconds delay - adjust as needed
 		}
 	}
@@ -1355,3 +1355,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
+
+
+Draw_Table()

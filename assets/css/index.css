@@ -662,3 +662,9 @@ table th {
 	width: 44px;
 	font-weight: 900;
 }
+
+.modal-header, .modal-body .btn{
+	background: #0d6938!important;
+	border: solid #0d6938!important;
+}
+

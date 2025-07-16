@@ -836,9 +836,6 @@ function ExportViewable() {
 	draw_counter = 0;
 	Number_of_Rows = MasterArray.length;
 	Name_for_file = TruckModel + '_' + SerialNumber + '_' + today + '_exported_logs.csv';
-
-	alert('Export Viewable function ran');
-
 	while (draw_counter < Number_of_Rows) {
 
 		Include_this_line = false;
@@ -929,9 +926,6 @@ function ExportViewable() {
 		draw_counter++;
 	}
 
-	alert('start read');
-	console.log(ExportThisFile);
-	alert('end read');
 	WebdownloadFile(Name_for_file, ExportThisFile);
 }
 
@@ -1259,7 +1253,7 @@ function WebdownloadFile(filename, text) {
 	var blob = new Blob([text], { type: 'text/plain' });
 	var link = document.createElement('a');
 	link.href = URL.createObjectURL(blob);
-	link.download = 'myTextFile.txt';
+	link.download = filename;
 	link.click();
 
 }

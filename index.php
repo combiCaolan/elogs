@@ -13,6 +13,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/Favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicons/favicon-16x16.png">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -115,7 +120,7 @@
             <!-- Desktop Sidebar -->
             <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar py-3" id="SideMenu">
                 <div id="CombiLogLine" class="mb-3"></div>
-                <button class="btn btn-primary w-100 mb-3 FilterThroughLogs">Filter Through Logs</button>
+                <p class="FilterThroughLogs">Filter Through Logs</p>
 
                 <div id="TimeFilter" class="card mb-3">
                     <div class="card-body">
@@ -138,8 +143,12 @@
                     </div>
                 </div>
 
-                <button class="btn btn-info w-100 mb-3 InfoAboutLineBTN">Info About Line</button>
+                <p class="InfoAboutLineBTN">Info About Line</p>
                 <div id="InfoAboutLine" class="mb-4"></div>
+                <button class="AIButton">AI</button>
+
+
+                <br /><br />
 
                 <div id="ExportResultsDiv" class="fixed-bottom pb-3 px-3" style="z-index: 1020;">
                     <input type="submit" class="btn btn-outline-primary w-100 ExportResultsButton"

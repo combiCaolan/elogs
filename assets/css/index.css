@@ -653,3 +653,12 @@ table th {
 	background: linear-gradient(180deg, #0d6938 0, #07351c) !important;
 	color: white!important;
 }
+
+.AIButton{
+	border: solid lightgray;
+	color: gray;
+	padding: 5px;
+	font-size: 18px;
+	width: 44px;
+	font-weight: 900;
+}

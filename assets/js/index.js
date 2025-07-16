@@ -1088,6 +1088,7 @@ $(document).ready(function () {
 	});
 });
 
+
 /*Start Function For User To Be Able To Read File*/
 function InitialReadFile(Type) {
 	var input = document.createElement('input');
@@ -1108,6 +1109,10 @@ function InitialReadFile(Type) {
 				alert('Please only open valid a log file');
 				return;
 			}
+			if (data == '') {
+				alert('Log File is empty');
+				return;
+			}
 			if (sessionStorage.getItem('Log') != null) {
 				CurrentLog = sessionStorage.getItem('Log');
 				sessionStorage.setItem('Log', data);// CurrentLog + '\n' + data);
@@ -1122,13 +1127,17 @@ function InitialReadFile(Type) {
 				sessionStorage.setItem('FileName', input.value.split('\\')[input.value.split('\\').length - 1]);
 				ReadLogs();
 			}
-			if (data == '') {
-				alert('Log File is empty');
-				return;
-			}
+			
+			// Add delay before calling Draw_Table()
+			setTimeout(() => {
+				document.getElementById('InstructionsText').style.display = 'none';
+				Draw_Table();
+			}, 1000); // 1 seconds delay - adjust as needed
 		}
 	}
 	input.click();
+
+	// Remove Draw_Table() from here since it should run after file processing
 }
 /*End Function For User To Be Able To Read File*/
 

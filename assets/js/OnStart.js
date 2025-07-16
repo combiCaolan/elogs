@@ -45,7 +45,7 @@ async function fetchTextFile(path) {
  */
 async function loadLogDefinitionFile() {
   if (!sessionStorage.getItem('LabelDictionary')) {
-    const file = `Dictionary/${sessionStorage.getItem('Language')}/LogDefinitionFile.txt`;
+    const file = `Dictionary/LogDefinitionFile.txt`;
     const text = await fetchTextFile(file);
     if (text !== null) {
       const lines = text.split('\n');
@@ -88,8 +88,8 @@ loadLogDefinitionFile();
 async function loadLogStructureFile(accessLevelForUser) {
   if (!sessionStorage.getItem('LogStructure')) {
     const file = accessLevelForUser > 6
-      ? `Dictionary/${sessionStorage.getItem('Language')}/LogStructure_Combi.txt`
-      : `Dictionary/${sessionStorage.getItem('Language')}/LogStructure.txt`;
+      ? `Dictionary/LogStructure_Combi.txt`
+      : `Dictionary/LogStructure.txt`;
     const text = await fetchTextFile(file);
     if (text !== null) {
       sessionStorage.setItem('LogStructure', text);
@@ -113,7 +113,7 @@ async function loadLogStructureFile(accessLevelForUser) {
  * @returns {Promise<void>}
  */
 async function loadDictionary3File() {
-  const file = `Dictionary/${sessionStorage.getItem('Language')}/Dictionary3.txt`;
+  const file = `Dictionary/Dictionary3.txt`;
   const text = await fetchTextFile(file);
   if (text !== null) {
     const lines = text.split('\n');

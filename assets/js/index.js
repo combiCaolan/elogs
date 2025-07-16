@@ -1127,7 +1127,7 @@ function InitialReadFile(Type) {
 				sessionStorage.setItem('FileName', input.value.split('\\')[input.value.split('\\').length - 1]);
 				ReadLogs();
 			}
-			
+
 			// Add delay before calling Draw_Table()
 			setTimeout(() => {
 				document.getElementById('InstructionsText').style.display = 'none';
@@ -1258,8 +1258,12 @@ function WebdownloadFile(filename, text) {
 
 if (sessionStorage.getItem('MasterArray') == null) {
 	//Removing ability for user to click Close these Logs - before Logs have been opened
-	document.getElementsByClassName('CloseTheseLogs')[0].removeAttribute('onclick');
-	document.getElementsByClassName('CloseTheseLogs')[0].setAttribute('style', 'background:lightgray;');
+	try {
+		document.getElementsByClassName('CloseTheseLogs')[0].removeAttribute('onclick');
+		document.getElementsByClassName('CloseTheseLogs')[0].setAttribute('style', 'background:lightgray;');
+	} catch (error) {
+
+	}
 }
 else {
 
@@ -1357,4 +1361,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-Draw_Table()
+// Draw_Table()

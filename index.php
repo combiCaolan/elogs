@@ -6,180 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Combilift - eLog Viewer</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/Favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/Favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicons/favicon-16x16.png">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Bootstrap 5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
     <?php include_once('Verify.php'); ?>
-
-    <!-- Web Header (Bootstrap version) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-        <div class="container-fluid">
-            <!-- Brand/Logo -->
-            <a class="navbar-brand d-flex align-items-center">
-                <img id="LogoHead" src="assets/img/eLogsLogo.png" alt="Combilift Logo" height="40"
-                    onclick="location.reload()">
-            </a>
-            <!-- Hamburger for mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navbar Content -->
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <!-- File Dropdown -->
-                    <li class="nav-item dropdown">
-                        <button class="btn nav-link dropdown-toggle HeaderFileButton" id="fileDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            File
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="fileDropdown">
-                            <li><a class="dropdown-item ReadLogFile" onclick="InitialReadFile()">Read Log File</a></li>
-                            <li><a class="dropdown-item CloseTheseLogs" onclick="CloseLogs()">Close all Logs</a></li>
-                        </ul>
-                    </li>
-                    <!-- Tools Dropdown -->
-                    <li class="nav-item dropdown">
-                        <button class="btn nav-link dropdown-toggle HeaderFileButton" id="toolsDropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Tools
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
-                            <li><a class="dropdown-item eCompassButton"
-                                    href="https://support.combilift.net/ecompass">eCompass</a></li>
-                            <li><a class="dropdown-item SupportButton"
-                                    href="https://support.combilift.net/knowledge-base">Knowledge Base</a></li>
-                        </ul>
-                    </li>
-                    <!-- Help Dropdown -->
-                    <li class="nav-item dropdown">
-                        <button class="btn nav-link dropdown-toggle" id="HeaderHelpButton" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Help
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="HeaderHelpButton">
-                            <li><a class="dropdown-item SupportButton" href="https://support.combilift.net">Combilift
-                                    Technical Support</a></li>
-                            <li><a class="dropdown-item SupportButton" href="https://combilift.com/en/contact/">Contact
-                                    Support</a></li>
-                            <li><a class="dropdown-item SupportButton" href="https://combilift.com/en/about-us/">About
-                                    Us</a></li>
-                        </ul>
-                    </li>
-                    <!-- User Dropdown -->
-                    <li class="nav-item dropdown">
-                        <button class="btn nav-link dropdown-toggle" id="HeaderUserButtonReal" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="far fa-user"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="HeaderUserButtonReal">
-                            <li>
-                                <button class="dropdown-item" id="DownloadButton">
-                                    <p id="FixedUsernameText" class="mb-0">User</p>
-                                    <p id="UsernameLocal" class="mb-0"></p>
-                                </button>
-                            </li>
-                            <li>
-                                <button class="dropdown-item" id="DownloadButton">
-                                    <p id="FixedAccessLevelText" class="mb-0">Access Level</p>
-                                    <p id="AccessLevel" class="mb-0"></p>
-                                </button>
-                            </li>
-                            <li>
-                                <button class="dropdown-item" id="DownloadButton"
-                                    onclick="sessionStorage.clear(); location.href=`http://support.combilift.net/wp-login.php?action=logout`;">
-                                    <p id="FixedLogoutText" class="mb-0">Logout</p>
-                                </button>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- End Web Header -->
-
-    <div class="container-fluid" id="Wrapper">
-        <div class="row">
-            <!-- Desktop Sidebar -->
-            <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar py-3" id="SideMenu">
-                <div id="CombiLogLine" class="mb-3"></div>
-                <p class="FilterThroughLogs">Filter Through Logs</p>
-
-                <div id="TimeFilter" class="card mb-3">
-                    <div class="card-body">
-                        <div class="mb-2">
-                            <label class="form-label">From :</label>
-                            <input id="StarterTime" type="date" class="form-control" disabled />
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">To :</label>
-                            <input id="EndTime" type="date" class="form-control" disabled />
-                        </div>
-                        <div class="mb-2 d-flex gap-2">
-                            <input type="submit" id="SearchFilterBTN" onclick="SearchFilterTime()" value="Search"
-                                class="btn btn-success flex-fill" disabled />
-                            <input type="submit" id="ClearFilterBTN" onclick="ClearFilterTime()" value="Clear"
-                                class="btn btn-secondary flex-fill" disabled />
-                        </div>
-                        <ul id="DatesInLogsList" class="list-group mb-2"></ul>
-                        <ul id="LogTypeLogsList" class="list-group"></ul>
-                    </div>
-                </div>
-
-                <p class="InfoAboutLineBTN">Info About Line</p>
-                <div id="InfoAboutLine" class="mb-4"></div>
-                <button class="AIButton">AI</button>
-
-
-                <br /><br />
-
-                <div id="ExportResultsDiv" class="fixed-bottom pb-3 px-3" style="z-index: 1020;">
-                    <input type="submit" class="btn btn-outline-primary w-100 ExportResultsButton"
-                        onclick="ExportViewable()" value="Export Results" disabled />
-                </div>
-
-                <div id="SidebarResizeHandle"></div>
-            </nav>
-
-            <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="MainBody">
-                <!-- Toggle for mobile -->
-                <button class="btn btn-primary d-md-none my-3" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#MobileSidebar" aria-controls="MobileSidebar">
-                    <i class="fas fa-filter"></i> Filter Logs
+    <div id="container">
+        <!-- Web Header (Bootstrap 5 version) -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <!-- Brand/Logo -->
+                <a class="navbar-brand d-flex align-items-center">
+                    <img id="LogoHead" src="assets/img/eLogsLogo.png" alt="Combilift Logo" height="40"
+                        onclick="location.reload()">
+                </a>
+                <!-- Hamburger for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div id="LogUserLog" class="my-3"></div>
-                <p id="InstructionsText" class="lead text-muted">Open a Combilift log file to view your logs</p>
-            </main>
-
-            <!-- Offcanvas Sidebar for Mobile -->
-            <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="MobileSidebar"
-                aria-labelledby="MobileSidebarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="MobileSidebarLabel">Filter Logs</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <!-- File Dropdown -->
+                        <li class="nav-item dropdown">
+                            <button class="btn nav-link dropdown-toggle text-white" id="fileDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                File
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="fileDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="InitialReadFile()">Read Log File</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="CloseLogs()">Close all Logs</a></li>
+                            </ul>
+                        </li>
+                        <!-- Tools Dropdown -->
+                        <li class="nav-item dropdown">
+                            <button class="btn nav-link dropdown-toggle text-white" id="toolsDropdown"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tools
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                                <li><a class="dropdown-item" href="https://support.combilift.net/ecompass">eCompass</a></li>
+                                <li><a class="dropdown-item" href="https://support.combilift.net/knowledge-base">Knowledge Base</a></li>
+                            </ul>
+                        </li>
+                        <!-- Help Dropdown -->
+                        <li class="nav-item dropdown">
+                            <button class="btn nav-link dropdown-toggle text-white" id="HeaderHelpButton" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Help
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="HeaderHelpButton">
+                                <li><a class="dropdown-item" href="https://support.combilift.net">Combilift Technical Support</a></li>
+                                <li><a class="dropdown-item" href="https://combilift.com/en/contact/">Contact Support</a></li>
+                                <li><a class="dropdown-item" href="https://combilift.com/en/about-us/">About Us</a></li>
+                            </ul>
+                        </li>
+                        <!-- User Dropdown -->
+                        <li class="nav-item dropdown">
+                            <button class="btn nav-link dropdown-toggle text-white" id="HeaderUserButtonReal"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="far fa-user"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="HeaderUserButtonReal">
+                                <li>
+                                    <div class="dropdown-item">
+                                        <p class="mb-0 fw-bold">User</p>
+                                        <p id="UsernameLocal" class="mb-0"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="dropdown-item">
+                                        <p class="mb-0 fw-bold">Access Level</p>
+                                        <p id="AccessLevel" class="mb-0"></p>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <button class="dropdown-item" onclick="sessionStorage.clear(); location.href='http://support.combilift.net/wp-login.php?action=logout';">
+                                        Logout
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div class="offcanvas-body">
+            </div>
+        </nav>
+        <!-- End Web Header -->
+
+        <div class="container-fluid" id="Wrapper">
+            <div class="row">
+                <!-- Desktop Sidebar -->
+                <nav class="col-md-3 col-lg-2 d-none d-md-block sidebar py-3" id="SideMenu">
                     <div id="CombiLogLine" class="mb-3"></div>
-                    <button class="btn btn-primary w-100 mb-3 FilterThroughLogs">Filter Through Logs</button>
+                    <p class="FilterThroughLogs">Filter Through Logs</p>
 
                     <div id="TimeFilter" class="card mb-3">
                         <div class="card-body">
@@ -192,9 +125,9 @@
                                 <input id="EndTime" type="date" class="form-control" disabled />
                             </div>
                             <div class="mb-2 d-flex gap-2">
-                                <input type="submit" id="SearchFilterBTN_M" onclick="SearchFilterTime()" value="Search"
+                                <input type="submit" id="SearchFilterBTN" onclick="SearchFilterTime()" value="Search"
                                     class="btn btn-success flex-fill" disabled />
-                                <input type="submit" id="ClearFilterBTN_M" onclick="ClearFilterTime()" value="Clear"
+                                <input type="submit" id="ClearFilterBTN" onclick="ClearFilterTime()" value="Clear"
                                     class="btn btn-secondary flex-fill" disabled />
                             </div>
                             <ul id="DatesInLogsList" class="list-group mb-2"></ul>
@@ -202,55 +135,257 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-info w-100 mb-3 InfoAboutLineBTN">Info About Line</button>
+                    <p class="InfoAboutLineBTN">Info About Line</p>
                     <div id="InfoAboutLine" class="mb-4"></div>
+                    
+                    <!-- AI Chatbot Button -->
+                    <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#aiChatModal">
+                        🤖 AI Chatbot
+                    </button>
 
-                    <div class="pb-3 px-3">
+                    <br /><br />
+
+                    <div id="ExportResultsDiv" class="position-fixed bottom-0 start-0 p-3" style="z-index: 1020; width: 100%;">
                         <input type="submit" class="btn btn-outline-primary w-100 ExportResultsButton"
                             onclick="ExportViewable()" value="Export Results" disabled />
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/OnStart.js"></script>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/download.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                    <div id="SidebarResizeHandle"></div>
+                </nav>
 
-    <!-- Dialogs -->
-    <div id="PopUpsDiv" style="display:none;">
-        <div id="DefaultFileList" title="New File">
-            <div id="DefaultFilesDiv" style="background: white; width: 100%;">
-                <div id="OpenForm">
-                    <div id="FileOptionBlock">
-                        <label div id="ChooseLogFileLabel">Choose your log file</label>
-                        <input type="submit" name="logFile" class="LogInput" onclick="readLogs()"
-                            value="Choose your log file" required="required" />
-                        <select class="LogInput" disabled="disabled" id="DropDownLog" required="required">
-                            <option value="0">--Please Choose --</option>
-                            <option value="1">Log_Msg_Centre</option>
-                            <option value="2">Log_System</option>
-                            <option value="3">Log_User</option>
-                        </select>
+                <!-- Main Content -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="MainBody">
+                    <!-- Toggle for mobile -->
+                    <button class="btn btn-primary d-md-none my-3" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#MobileSidebar" aria-controls="MobileSidebar">
+                        <i class="fas fa-filter"></i> Filter Logs
+                    </button>
 
-                        <br />
+                    <div id="LogUserLog" class="my-3"></div>
+                    <p id="InstructionsText" class="lead text-muted">Open a Combilift log file to view your logs</p>
+                </main>
 
-                        <input type="submit" value="Open Logs" disabled="disabled" class="LogInput"
-                            id="LogInputButtonCall" onclick="ReadLogs()" />
+                <!-- Offcanvas Sidebar for Mobile -->
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="MobileSidebar"
+                    aria-labelledby="MobileSidebarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="MobileSidebarLabel">Filter Logs</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <br />
+                    <div class="offcanvas-body">
+                        <div id="CombiLogLine" class="mb-3"></div>
+                        <button class="btn btn-primary w-100 mb-3 FilterThroughLogs">Filter Through Logs</button>
+
+                        <div id="TimeFilter" class="card mb-3">
+                            <div class="card-body">
+                                <div class="mb-2">
+                                    <label class="form-label">From :</label>
+                                    <input id="StarterTime" type="date" class="form-control" disabled />
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">To :</label>
+                                    <input id="EndTime" type="date" class="form-control" disabled />
+                                </div>
+                                <div class="mb-2 d-flex gap-2">
+                                    <input type="submit" id="SearchFilterBTN_M" onclick="SearchFilterTime()"
+                                        value="Search" class="btn btn-success flex-fill" disabled />
+                                    <input type="submit" id="ClearFilterBTN_M" onclick="ClearFilterTime()" value="Clear"
+                                        class="btn btn-secondary flex-fill" disabled />
+                                </div>
+                                <ul id="DatesInLogsList" class="list-group mb-2"></ul>
+                                <ul id="LogTypeLogsList" class="list-group"></ul>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-info w-100 mb-3 InfoAboutLineBTN">Info About Line</button>
+                        <div id="InfoAboutLine" class="mb-4"></div>
+
+                        <!-- AI Chatbot Button for Mobile -->
+                        <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#aiChatModal">
+                            🤖 AI Chatbot
+                        </button>
+
+                        <div class="pb-3 px-3">
+                            <input type="submit" class="btn btn-outline-primary w-100 ExportResultsButton"
+                                onclick="ExportViewable()" value="Export Results" disabled />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="SearchDialog" title="Search Logs">
-            <input type="text" id="SearchInput" placeholder="Search Trough Logs">
+        <!-- AI Chatbot Modal -->
+        <div class="modal fade" id="aiChatModal" tabindex="-1" aria-labelledby="aiChatModalLabel">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="aiChatModalLabel">🤖 AI Log Assistant</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <!-- Chat Messages Area -->
+                        <div id="chatMessages" class="p-3 bg-light" style="height: 400px; overflow-y: auto;">
+                            <!-- Welcome Message -->
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        🤖
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="bg-white p-3 rounded-3 shadow-sm">
+                                        <p class="mb-1">Hello! I'm your AI Log Assistant. I can help you:</p>
+                                        <ul class="mb-0 small">
+                                            <li>Analyze your log files</li>
+                                            <li>Find specific errors or patterns</li>
+                                            <li>Explain log entries</li>
+                                            <li>Provide troubleshooting suggestions</li>
+                                        </ul>
+                                    </div>
+                                    <small class="text-muted">Just now</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Input Area -->
+                        <div class="p-3 border-top">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="chatInput" placeholder="Type your message...">
+                                <button class="btn btn-primary" type="button" onclick="sendMessage()">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-flex justify-content-between w-100 align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-info-circle me-1"></i>
+                                AI responses are based on your uploaded log data
+                            </small>
+                            <div>
+                                <button type="button" class="btn btn-outline-secondary btn-sm me-2" onclick="clearChat()">
+                                    Clear Chat
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div id="ChangeLanguageDialog" title="Change Language">
+        <!-- Bootstrap 5.3.3 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Your Scripts -->
+        <script src="assets/js/OnStart.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/download.js"></script>
+
+        <!-- Chatbot JavaScript -->
+        <script>
+        $(document).ready(function() {
+            // Send message on Enter key
+            $('#chatInput').on('keypress', function(e) {
+                if (e.which === 13) {
+                    sendMessage();
+                }
+            });
+        });
+
+        function sendMessage() {
+            const message = $('#chatInput').val().trim();
+            if (message) {
+                addMessage(message, 'user');
+                $('#chatInput').val('');
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    addMessage('This is a placeholder AI response. Integration with actual AI service will be implemented here.', 'ai');
+                }, 1000);
+            }
+        }
+
+        function addMessage(message, sender) {
+            const isUser = sender === 'user';
+            const messageHtml = `
+                <div class="d-flex mb-3 ${isUser ? 'flex-row-reverse' : ''}">
+                    <div class="flex-shrink-0">
+                        <div class="${isUser ? 'bg-success' : 'bg-primary'} text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            ${isUser ? '👤' : '🤖'}
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 ${isUser ? 'me-3' : 'ms-3'}">
+                        <div class="${isUser ? 'bg-primary text-white' : 'bg-white'} p-3 rounded-3 shadow-sm">
+                            <p class="mb-0">${message}</p>
+                        </div>
+                        <small class="text-muted ${isUser ? 'd-block text-end' : ''}">Just now</small>
+                    </div>
+                </div>
+            `;
+            
+            $('#chatMessages').append(messageHtml);
+            $('#chatMessages').scrollTop($('#chatMessages')[0].scrollHeight);
+        }
+
+        function clearChat() {
+            $('#chatMessages').html(`
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            🤖
+                        </div>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <div class="bg-white p-3 rounded-3 shadow-sm">
+                            <p class="mb-1">Hello! I'm your AI Log Assistant. I can help you:</p>
+                            <ul class="mb-0 small">
+                                <li>Analyze your log files</li>
+                                <li>Find specific errors or patterns</li>
+                                <li>Explain log entries</li>
+                                <li>Provide troubleshooting suggestions</li>
+                            </ul>
+                        </div>
+                        <small class="text-muted">Just now</small>
+                    </div>
+                </div>
+            `);
+        }
+        </script>
+
+        <!-- Dialogs -->
+        <div id="PopUpsDiv" style="display:none;">
+            <div id="DefaultFileList" title="New File">
+                <div id="DefaultFilesDiv" style="background: white; width: 100%;">
+                    <div id="OpenForm">
+                        <div id="FileOptionBlock">
+                            <label id="ChooseLogFileLabel">Choose your log file</label>
+                            <input type="submit" name="logFile" class="LogInput" onclick="readLogs()"
+                                value="Choose your log file" required="required" />
+                            <select class="LogInput" disabled="disabled" id="DropDownLog" required="required">
+                                <option value="0">--Please Choose --</option>
+                                <option value="1">Log_Msg_Centre</option>
+                                <option value="2">Log_System</option>
+                                <option value="3">Log_User</option>
+                            </select>
+
+                            <br />
+
+                            <input type="submit" value="Open Logs" disabled="disabled" class="LogInput"
+                                id="LogInputButtonCall" onclick="ReadLogs()" />
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            <div id="SearchDialog" title="Search Logs">
+                <input type="text" id="SearchInput" placeholder="Search Through Logs">
+            </div>
+
+            <div id="ChangeLanguageDialog" title="Change Language">
+            </div>
         </div>
     </div>
 </body>

@@ -1132,6 +1132,7 @@ function InitialReadFile(Type) {
 			setTimeout(() => {
 				document.getElementById('InstructionsText').style.display = 'none';
 				Draw_Table();
+				document.getElementsByClassName('ExportResultsButton')[0].removeAttribute('disabled');
 			}, 1000); // 1 seconds delay - adjust as needed
 		}
 	}
@@ -1246,18 +1247,6 @@ function PopUpDefinition(CodeName, Elementid) {
  * @param {string} text - The file contents.
  */
 function WebdownloadFile(filename, text) {
-	// Prepare the data to send
-	// const data = {
-	// 	Model: TruckModel,
-	// 	FileName: filename,
-	// 	SerialNumber: SerialNumber,
-	// 	Username: sessionStorage.getItem('elogsloggedinusername'),
-	// 	Useremail: sessionStorage.getItem('elogsloggedinemail'),
-	// 	AccessLevel: sessionStorage.getItem('AccessLevel'),
-	// 	ActionInput: 'Exported Results',
-	// 	ExportData: text
-	// };
-
 
 	var blob = new Blob([text], { type: 'text/plain' });
 	var link = document.createElement('a');

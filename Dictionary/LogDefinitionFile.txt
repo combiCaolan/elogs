@@ -1,5 +1,22 @@
 XXX,Label,Scale,Units,Description
 empty,Fault,*, , 
+164,Action,*,Driver 4 Fault,Description
+168,Action,*,Driver Assignment,Description
+147,Action,*,Encoder LOS,Description
+148,Action,*,Emer Rev Timeout,Description
+149,Action,*,Pump Overcurrent,Description
+150,Action,*,Pump BDI,Description
+151,Action,*,Pump Hardware
+153,Action,*,Parameter Mismatch
+154,Action,*,Interlock Braking Supervision
+155,Action,*,EMR Supervision
+161,Action,*,Driver 1 Fault
+162,Action,*,Driver 2 Fault
+163,Action,*,Driver 3 Fault
+164,Action,*,Driver 4 Fault
+165,Action,*,Driver 5 Fault
+166,Action,*,Driver 6 Fault
+167,Action,*,Driver 7 Fault
 2,Label,Scale,Units,Description
 36,Label,Scale,Units,Description
 100,Action,*,Service Log,Service Log

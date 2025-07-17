@@ -417,9 +417,18 @@ function ArrayReadLogs() {
 
 			}
 			else {
+				// try{
 				Scale = ScaleDictionary[ActionCode];
 				Units = UnitsDictionary[ActionCode];
 				Description = DescriptionDictionary[ActionCode];
+				// }catch(error){
+				// 	alert(ActionCode);
+				// 	console.log(error);
+				// 	Scale = 0;
+				// 	Units = '*';
+				// 	Description = '*';
+				// 	// continue;
+				// }
 
 				try {
 					if (Scale[0] == '*') {
@@ -448,9 +457,29 @@ function ArrayReadLogs() {
 				fourthCounter = 2;
 
 				while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
+					// try{
+					console.log(ActionCode);
+					console.log(LogStructure_Dict[ActionCode][fourthCounter]);
+					xy = LogStructure_Dict[ActionCode][fourthCounter]
+					// alert(ActionCode);
+					// alert(ScaleDictionary[xy]);
 					Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+					console.log('Scale');
+					console.log(fourthCounter);
+
 					Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+					console.log('Units');
+					console.log(fourthCounter);
+
 					Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+					console.log('Label');
+					console.log(fourthCounter);
+
+					// }catch(error){
+					// 	console.log(error);
+					// 	alert(ActionCode);
+					// 	// return;
+					// }
 					try {
 						if (Scale[0] == '*') {
 							//means do the Log Key
@@ -1276,15 +1305,18 @@ else {
 
 	if (MasterArray[0] !== undefined) {
 
-		document.getElementById('InstructionsText').setAttribute('style', 'display:none;');
-		document.getElementsByClassName('CloseTheseLogs')[0].setAttribute('onclick', 'CloseLogs()');
-		document.getElementsByClassName('CloseTheseLogs')[0].removeAttribute('style');
-		document.getElementById('StarterTime').removeAttribute('disabled');
-		document.getElementById('EndTime').removeAttribute('disabled');
-		document.getElementById('SearchFilterBTN').removeAttribute('disabled');
-		document.getElementById('ClearFilterBTN').removeAttribute('disabled');
-		document.getElementsByClassName('ExportResultsButton')[0].removeAttribute('disabled');
+		try {
+			document.getElementById('InstructionsText').setAttribute('style', 'display:none;');
+			document.getElementsByClassName('CloseTheseLogs')[0].setAttribute('onclick', 'CloseLogs()');
+			document.getElementsByClassName('CloseTheseLogs')[0].removeAttribute('style');
+			document.getElementById('StarterTime').removeAttribute('disabled');
+			document.getElementById('EndTime').removeAttribute('disabled');
+			document.getElementById('SearchFilterBTN').removeAttribute('disabled');
+			document.getElementById('ClearFilterBTN').removeAttribute('disabled');
+			document.getElementsByClassName('ExportResultsButton')[0].removeAttribute('disabled');
 
+		} catch (error) {
+		}
 		TruckModel = sessionStorage.getItem('TruckModel');
 		SerialNumber = sessionStorage.getItem('SerialNumber');
 

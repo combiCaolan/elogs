@@ -168,267 +168,59 @@ function ArrayReadLogs() {
 		}
 
 		ActionCode = Number(LogFile.split('\n')[counter].split(';')[1]);
-		utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
-		Line = {};
-		Line["t"] = utcSeconds;
-		Line["tl"] = 'TimeStamp';
 
-		//FORM FOR LOG REGISTRATION
-		EmptyDiv = document.createElement('div');
-		EmptyDiv.setAttribute('style', 'display:none;')
+		if ([164, 165, 166, 167, 168].includes(ActionCode)) {
+			document.getElementById('combi-version-type-heading').innerHTML = 'F-SERIES TYPE';
+			// F-SERIES TYPE
+			// if (FileType != '500') {
+				utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
+				Line = {};
+				Line["t"] = utcSeconds;
+				Line["tl"] = 'TimeStamp';
 
-		Form = document.createElement('form');
-		Form.setAttribute('action', 'includes/openfile.php');
-		Form.setAttribute('method', 'POST');
-		Form.setAttribute('name', 'LogRegForm');
 
-		Model = document.createElement('input');
-		Model.type = 'text';
-		Model.setAttribute('name', 'Model');
-		Model.value = TruckModel;
-
-		Form.appendChild(Model);
-
-		FileName = document.createElement('input');
-		FileName.type = 'text';
-		FileName.setAttribute('name', 'FileName');
-
-		SerialNumber_form = document.createElement('input');
-		SerialNumber_form.type = 'text';
-		SerialNumber_form.setAttribute('name', 'SerialNumber');
-		SerialNumber_form.value = SerialNumber;
-
-		Form.appendChild(SerialNumber_form);
-
-		UserName = document.createElement('input');
-		UserName.type = 'text';
-		UserName.setAttribute('name', 'Username');
-		UserName.value = sessionStorage.getItem('elogsloggedinusername');
-
-		Form.appendChild(UserName);
-
-		Useremail = document.createElement('input');
-		Useremail.type = 'text';
-		Useremail.setAttribute('name', 'Useremail');
-		Useremail.value = sessionStorage.getItem('elogsloggedinemail');
-
-		Form.appendChild(Useremail);
-
-		AccessLevel = document.createElement('input');
-		AccessLevel.type = 'text';
-		AccessLevel.setAttribute('name', 'AccessLevel');
-		AccessLevel.value = sessionStorage.getItem('AccessLevel');
-
-		Form.appendChild(AccessLevel);
-
-		ActionInput = document.createElement('input');
-		ActionInput.type = 'text';
-		ActionInput.setAttribute('name', 'ActionInput');
-		ActionInput.value = 'Opened File' + FileType;
-
-		Form.appendChild(ActionInput);
-
-		SubmitForm = document.createElement('input');
-		SubmitForm.type = 'submit';
-
-		Form.appendChild(SubmitForm);
-
-		EmptyDiv.appendChild(Form);
-
-		//Parsing the data		
-		if (FileType != '500') {
-
-			Scale = ScaleDictionary[ActionCode];
-			Units = UnitsDictionary[ActionCode];
-			Description = DescriptionDictionary[ActionCode];
-
-			try {
-				if (Scale[0] == '*') {
-					//means do the Log Key
-					ShowValue = Units;
-				} else {
-					//Value is going to be the original value from log file
-					Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
-
-					ShowValue = Value.toFixed(2) + ' ' + Units;
+				const controllerList = {
+					164 : "A4TRR",
+					165 : 'A5TRL',
+					166 : 'A6TFR',
+					167 : 'A7TFL',
+					168 : 'A8PUMP'
 				}
-			} catch (err) {
-				ShowValue = 'NA';
-			}
 
-			Line["e"] = ShowValue;
-			Line["el"] = 'Log Event';
+				Line["d"] = controllerList[LogFile.split('\n')[counter].split(';')[1]];
+				Line["dl"] = 'Controller';
+				console.log(LogFile.split('\n')[counter].split(';')[1]);
+				// Line["el"] = 'Controller';
 
-			ShowValue = undefined;
+				Description = DescriptionDictionary[('' + ActionCode)];
+				console.log(('' + ActionCode));
+				console.log(typeof(ActionCode));
+				console.log(Description);
+				Line["desc"] = Description;
 
-			fourthCounter = 2;
 
-			while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
-				Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-				Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-				Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-				try {
-					if (Scale[0] == '*') {
-						//means do the Log Key
-						ShowValue = Units;
-					} else {
-						if (Scale[0] == '!') {
-							KeyVariable = LogStructure_Dict[ActionCode][fourthCounter] + '_' + LogFile.split('\n')[counter].split(';')[fourthCounter];
-							ShowValue = LogKey[KeyVariable];
-						} else {
-							//Value is going to be the original value from log file
-							Value = Number(LogFile.split('\n')[counter].split(';')[fourthCounter]) * Number(Scale);
-
-							ShowValue = Value.toFixed(2) + ' ' + Units;
-						}
-
-						property_str = 'v' + fourthCounter;
-						Line[property_str] = ShowValue;
-						property_str = 'vl' + fourthCounter;
-						Line[property_str] = Label;
-					}
-				} catch (err) {
-					ShowValue = ' ';
-				}
-				fourthCounter++;
-			}
-
-			//Creating Description 
-			Line["desc"] = Description;
-
-			if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
+				console.log(Line);
+				
+				// present logs
 				MasterArray.push(Line);
-			}
 
+				// controller
+				// CAN_Index
+				// FlashCode
+				// FaultType
+			// }
 		} else {
-			TypeOne = [36, 37, 38, 39, 40];
-			TypeTwo = [2, 3, 4, 5];
+			utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
+			Line = {};
+			Line["t"] = utcSeconds;
+			Line["tl"] = 'TimeStamp';
 
-			DeviceId = Number(LogFile.split('\n')[counter].split(';')[1]);
-			if (TypeOne.includes(DeviceId)) {
-				ActionCode = 'Curtis_TP' + '_' + LogFile.split('\n')[counter].split(';')[2];
-			} else if (TypeTwo.includes(DeviceId)) {
-				ActionCode = 'Curtis_S';
-			} else if (DeviceId == 50) {
-				ActionCode = 'TT_PLC' + '_' + LogFile.split('\n')[counter].split(';')[2];
-			}
+			//Parsing the data		
+			if (FileType != '500') {
 
-			if (ActionCode == 'Curtis_S') {
-				bit_ptr = 0;
-
-				while (bit_ptr < 32) {
-					bit_mask = 2 ** bit_ptr;
-					masked_result = LogFile.split('\n')[counter].split(';')[4] & bit_mask;
-					ActionCode = 'Curtis_S';
-					if (masked_result > 0) {
-						//fault is valid
-						bit_ptr_final = bit_ptr + 1;
-						ActionCode = ActionCode + '_' + bit_ptr_final;
-
-						Scale = ScaleDictionary[ActionCode];
-						Units = UnitsDictionary[ActionCode];
-						Description = DescriptionDictionary[ActionCode];
-
-						try {
-							if (Scale[0] == '*') {
-								//means do the Log Key
-								ShowValue = Units;
-							} else {
-								ShowValue = ' invalid ';
-							}
-						} catch (err) {
-							ShowValue = 'NA';
-						}
-
-						Line["e"] = ShowValue;
-						Line["el"] = 'Log Event';
-
-						ShowValue = undefined;
-
-						//Device
-						Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
-						Line["d"] = UnitsDictionary[Device_str];
-						Line["dl"] = 'Device';
-
-						//Creating Description 
-						Line["desc"] = Description;
-
-						if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
-							MasterArray.push(Line);
-						}
-						Line = {};
-						Line["t"] = utcSeconds;
-						Line["tl"] = 'TimeStamp';
-
-					}
-					bit_ptr++;
-
-				}
-
-				bit_ptr = 0;
-
-				while (bit_ptr < 32) {
-					bit_mask = 2 ** bit_ptr;
-					masked_result = LogFile.split('\n')[counter].split(';')[5] & bit_mask;
-					ActionCode = 'Curtis_S';
-					if (masked_result > 0) {
-						//fault is valid
-						bit_ptr_final = bit_ptr + 33;
-						ActionCode = ActionCode + '_' + bit_ptr_final;
-						Scale = ScaleDictionary[ActionCode];
-						Units = UnitsDictionary[ActionCode];
-						Description = DescriptionDictionary[ActionCode];
-
-						try {
-							if (Scale[0] == '*') {
-								//means do the Log Key
-								ShowValue = Units;
-							} else {
-								ShowValue = ' invalid ';
-							}
-						} catch (err) {
-							ShowValue = 'NA';
-						}
-
-						Line["e"] = ShowValue;
-						Line["el"] = 'Log Event';
-
-						ShowValue = undefined;
-
-						//Device
-						Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
-						Line["d"] = UnitsDictionary[Device_str];
-						Line["dl"] = 'Device';
-
-						//Creating Description 
-						Line["desc"] = Description;
-
-						if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
-							MasterArray.push(Line);
-						}
-						Line = {};
-						Line["t"] = utcSeconds;
-						Line["tl"] = 'TimeStamp';
-
-					}
-					bit_ptr++;
-
-				}
-
-			}
-			else {
-				// try{
 				Scale = ScaleDictionary[ActionCode];
 				Units = UnitsDictionary[ActionCode];
 				Description = DescriptionDictionary[ActionCode];
-				// }catch(error){
-				// 	alert(ActionCode);
-				// 	console.log(error);
-				// 	Scale = 0;
-				// 	Units = '*';
-				// 	Description = '*';
-				// 	// continue;
-				// }
 
 				try {
 					if (Scale[0] == '*') {
@@ -437,6 +229,7 @@ function ArrayReadLogs() {
 					} else {
 						//Value is going to be the original value from log file
 						Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
+
 						ShowValue = Value.toFixed(2) + ' ' + Units;
 					}
 				} catch (err) {
@@ -448,38 +241,12 @@ function ArrayReadLogs() {
 
 				ShowValue = undefined;
 
-				//Device
-				Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
-
-				Line["d"] = UnitsDictionary[Device_str];
-				Line["dl"] = 'Device';
-
 				fourthCounter = 2;
 
 				while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
-					// try{
-					console.log(ActionCode);
-					console.log(LogStructure_Dict[ActionCode][fourthCounter]);
-					xy = LogStructure_Dict[ActionCode][fourthCounter]
-					// alert(ActionCode);
-					// alert(ScaleDictionary[xy]);
 					Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-					console.log('Scale');
-					console.log(fourthCounter);
-
 					Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-					console.log('Units');
-					console.log(fourthCounter);
-
 					Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
-					console.log('Label');
-					console.log(fourthCounter);
-
-					// }catch(error){
-					// 	console.log(error);
-					// 	alert(ActionCode);
-					// 	// return;
-					// }
 					try {
 						if (Scale[0] == '*') {
 							//means do the Log Key
@@ -490,10 +257,11 @@ function ArrayReadLogs() {
 								ShowValue = LogKey[KeyVariable];
 							} else {
 								//Value is going to be the original value from log file
-								Value = Number(LogFile.split('\n')[counter].split(';')[fourthCounter + 2]) * Number(Scale);
+								Value = Number(LogFile.split('\n')[counter].split(';')[fourthCounter]) * Number(Scale);
 
 								ShowValue = Value.toFixed(2) + ' ' + Units;
 							}
+
 							property_str = 'v' + fourthCounter;
 							Line[property_str] = ShowValue;
 							property_str = 'vl' + fourthCounter;
@@ -509,17 +277,233 @@ function ArrayReadLogs() {
 				Line["desc"] = Description;
 
 				if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
+					console.log(Line);
 					MasterArray.push(Line);
 				}
-				Line = {};
 
+			} else {
+				TypeOne = [36, 37, 38, 39, 40];
+				TypeTwo = [2, 3, 4, 5];
+
+				DeviceId = Number(LogFile.split('\n')[counter].split(';')[1]);
+				if (TypeOne.includes(DeviceId)) {
+					ActionCode = 'Curtis_TP' + '_' + LogFile.split('\n')[counter].split(';')[2];
+				} else if (TypeTwo.includes(DeviceId)) {
+					ActionCode = 'Curtis_S';
+				} else if (DeviceId == 50) {
+					ActionCode = 'TT_PLC' + '_' + LogFile.split('\n')[counter].split(';')[2];
+				}
+
+				if (ActionCode == 'Curtis_S') {
+					bit_ptr = 0;
+
+					while (bit_ptr < 32) {
+						bit_mask = 2 ** bit_ptr;
+						masked_result = LogFile.split('\n')[counter].split(';')[4] & bit_mask;
+						ActionCode = 'Curtis_S';
+						if (masked_result > 0) {
+							//fault is valid
+							bit_ptr_final = bit_ptr + 1;
+							ActionCode = ActionCode + '_' + bit_ptr_final;
+
+							Scale = ScaleDictionary[ActionCode];
+							Units = UnitsDictionary[ActionCode];
+							Description = DescriptionDictionary[ActionCode];
+
+							try {
+								if (Scale[0] == '*') {
+									//means do the Log Key
+									ShowValue = Units;
+								} else {
+									ShowValue = ' invalid ';
+								}
+							} catch (err) {
+								ShowValue = 'NA';
+							}
+
+							Line["e"] = ShowValue;
+							Line["el"] = 'Log Event';
+
+							ShowValue = undefined;
+
+							//Device
+							Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+							Line["d"] = UnitsDictionary[Device_str];
+							Line["dl"] = 'Device';
+
+							//Creating Description 
+							Line["desc"] = Description;
+
+							if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
+								console.log(Line);
+								MasterArray.push(Line);
+							}
+							Line = {};
+							Line["t"] = utcSeconds;
+							Line["tl"] = 'TimeStamp';
+
+						}
+						bit_ptr++;
+
+					}
+
+					bit_ptr = 0;
+
+					while (bit_ptr < 32) {
+						bit_mask = 2 ** bit_ptr;
+						masked_result = LogFile.split('\n')[counter].split(';')[5] & bit_mask;
+						ActionCode = 'Curtis_S';
+						if (masked_result > 0) {
+							//fault is valid
+							bit_ptr_final = bit_ptr + 33;
+							ActionCode = ActionCode + '_' + bit_ptr_final;
+							Scale = ScaleDictionary[ActionCode];
+							Units = UnitsDictionary[ActionCode];
+							Description = DescriptionDictionary[ActionCode];
+
+							try {
+								if (Scale[0] == '*') {
+									//means do the Log Key
+									ShowValue = Units;
+								} else {
+									ShowValue = ' invalid ';
+								}
+							} catch (err) {
+								ShowValue = 'NA';
+							}
+
+							Line["e"] = ShowValue;
+							Line["el"] = 'Log Event';
+
+							ShowValue = undefined;
+
+							//Device
+							Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+							Line["d"] = UnitsDictionary[Device_str];
+							Line["dl"] = 'Device';
+
+							//Creating Description 
+							Line["desc"] = Description;
+
+							if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
+								console.log(Line);
+								MasterArray.push(Line);
+							}
+							Line = {};
+							Line["t"] = utcSeconds;
+							Line["tl"] = 'TimeStamp';
+
+						}
+						bit_ptr++;
+
+					}
+
+				}
+				else {
+					// try{
+					Scale = ScaleDictionary[ActionCode];
+					Units = UnitsDictionary[ActionCode];
+					Description = DescriptionDictionary[ActionCode];
+					// }catch(error){
+					// 	alert(ActionCode);
+					// 	console.log(error);
+					// 	Scale = 0;
+					// 	Units = '*';
+					// 	Description = '*';
+					// 	// continue;
+					// }
+
+					try {
+						if (Scale[0] == '*') {
+							//means do the Log Key
+							ShowValue = Units;
+						} else {
+							//Value is going to be the original value from log file
+							Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
+							ShowValue = Value.toFixed(2) + ' ' + Units;
+						}
+					} catch (err) {
+						ShowValue = 'NA';
+					}
+
+					Line["e"] = ShowValue;
+					Line["el"] = 'Log Event';
+
+					ShowValue = undefined;
+
+					//Device
+					Device_str = 'Device_' + LogFile.split('\n')[counter].split(';')[1];
+
+					Line["d"] = UnitsDictionary[Device_str];
+					Line["dl"] = 'Device';
+
+					fourthCounter = 2;
+
+					while (LogFile.split('\n')[counter].split(';')[fourthCounter] != undefined) {
+						// try{
+						console.log(ActionCode);
+						console.log(LogStructure_Dict[ActionCode][fourthCounter]);
+						xy = LogStructure_Dict[ActionCode][fourthCounter]
+						// alert(ActionCode);
+						// alert(ScaleDictionary[xy]);
+						Scale = ScaleDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+						console.log('Scale');
+						console.log(fourthCounter);
+
+						Units = UnitsDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+						console.log('Units');
+						console.log(fourthCounter);
+
+						Label = LabelDictionary[LogStructure_Dict[ActionCode][fourthCounter]];
+						console.log('Label');
+						console.log(fourthCounter);
+
+						// }catch(error){
+						// 	console.log(error);
+						// 	alert(ActionCode);
+						// 	// return;
+						// }
+						try {
+							if (Scale[0] == '*') {
+								//means do the Log Key
+								ShowValue = Units;
+							} else {
+								if (Scale[0] == '!') {
+									KeyVariable = LogStructure_Dict[ActionCode][fourthCounter] + '_' + LogFile.split('\n')[counter].split(';')[fourthCounter];
+									ShowValue = LogKey[KeyVariable];
+								} else {
+									//Value is going to be the original value from log file
+									Value = Number(LogFile.split('\n')[counter].split(';')[fourthCounter + 2]) * Number(Scale);
+
+									ShowValue = Value.toFixed(2) + ' ' + Units;
+								}
+								property_str = 'v' + fourthCounter;
+								Line[property_str] = ShowValue;
+								property_str = 'vl' + fourthCounter;
+								Line[property_str] = Label;
+							}
+						} catch (err) {
+							ShowValue = ' ';
+						}
+						fourthCounter++;
+					}
+
+					//Creating Description 
+					Line["desc"] = Description;
+
+					if (AccessLvlCode >= Number(LogStructure_Dict[ActionCode][1])) {
+						console.log(Line);
+						MasterArray.push(Line);
+					}
+					Line = {};
+
+				}
 			}
 		}
 		counter++;
 	}
 
 	sessionStorage.setItem('MasterArray', JSON.stringify(MasterArray));
-	SubmitForm.click();
 }
 
 

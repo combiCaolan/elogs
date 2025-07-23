@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #output {
+            margin-top: 20px;
+            text-align: center;
+            background-color: whitesmoke;
+            width: 90%;
+            min-height: 100px;
+            box-shadow: #4CAF50 0px 0px 10px;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        #submitButton,
+        #resetButton {
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <form id="dictionaryForm" onSubmit="tool();">
+            <h2>Dictionary Entry Form</h2>
+            <table border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <th>hexadecimal</th>
+                    <th>Name</th>
+                    <th>description</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="hexadecimal" placeholder="hexadecimal" /></td>
+                    <td><input type="text" id="name" placeholder="name" /></td>
+                    <td><textarea placeholder="description" id="description"></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit" id="submitButton" />
+            <input type="reset" value="Reset" id="resetButton" />
+        </form>
+
+        <div id="output">
+
+        </div>
+    </center>
+
+
+    <script>
+        function tool() {
+            event.preventDefault();
+            const hex = document.getElementById('hexadecimal').value;
+            const desc = document.getElementById('description').value;
+            const name = document.getElementById('name').value;
+
+            console.log(Number(hex));
+            console.log(name);
+            console.log(desc);
+
+            if (hex && name && desc) {
+                const output = document.getElementById('output');
+                output.innerHTML = `${Number(hex)},Action,*,${name},${desc}`;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

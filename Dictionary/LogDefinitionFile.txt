@@ -1,196 +1,200 @@
 XXX,Label,Scale,Units,Description
 empty,Fault,*, , 
-9488,Action,*,Controller Overcurrent,[Description]
-10290,Action,*,Current Sensor,[Description]
-8739,Action,*,Precharge Failed,[Description]
-8513,Action,*,Controller Severe Undertemperature,[Description]
-8514,Action,*,Controller Severe Overtemperature,[Description]
-8480,Action,*,Severe B+ Undervoltage,[Description]
-8482,Action,*,Severe KSI Undervoltage,[Description]
-8496,Action,*,Severe B+ Overvoltage,[Description]
-8498,Action,*,Severe KSI Overvoltage,[Description]
-8499,Action,*,Speed Limit Supervision,[Description]
-8500,Action,*,Motor Not Stopped,[Description]
-8457,Action,*,Critical OS General,[Description]
-8458,Action,*,OS General 2,[Description]
-8464,Action,*,Reset Rejected,[Description]
-8462,Action,*,Motor Short,[Description]
-8512,Action,*,Controller Overtemperature Cutback,[Description]
-8481,Action,*,Undervoltage Cutback,[Description]
-9521,Action,*,Ext 5V Supply Failure,[Description]
-8529,Action,*,Motor Temp Hot Cutback,[Description]
-8528,Action,*,Motor Temp Sensor,[Description]
-8992,Action,*,EM Brake Driver,[Description]
-9248,Action,*,Pump Driver,[Description]
-9264,Action,*,Load-Hold Driver,[Description]
-9280,Action,*,Lower Driver,[Description]
-8752,Action,*,IM Motor Feedback,[Description]
-8754,Action,*,Sin Cos Motor Feedback,[Description]
-8768,Action,*,Motor Open,[Description]
-8736,Action,*,Main Contractor Did Not Close,[Description]
-8737,Action,*,Motor Setup Needed,[Description]
-8451,Action,*,Main Contractor Welded,[Description]
-8450,Action,*,Misalignment Error,[Description]
-8720,Action,*,Throttle Input,[Description]
-8976,Action,*,Brake Input,[Description]
-10288,Action,*,NV Memory Failure,[Description]
-8721,Action,*,HPD Sequencing,[Description]
-9009,Action,*,Emer Rev HPD,[Description]
-8484,Action,*,Hydraulic HPD SRO Lower,[Description]
-8485,Action,*,Hydraulic HPD SRO Lift,[Description]
-8486,Action,*,LHS Throttle Conflict,[Description]
-9009,Action,*,Emer Rev HPD,[Description]
-8484,Action,*,Hydraulic HPD SRO Lower,[Description]
-8485,Action,*,Hydraulic HPD SRO Lift,[Description]
-8486,Action,*,LHS Throttle Conflict,[Description]
-10259,Action,*,Parameter Change,[Description]
-10263,Action,*,EMR Switch,[Description]
-10000,Action,*,User 1 Fault,[Description]
-10116,Action,*,User 33 Fault,[Description]
-10001,Action,*,User 2 Fault,[Description]
-10117,Action,*,User 34 Fault,[Description]
-10002,Action,*,User 3 Fault,[Description]
-NaN,Action,*,7 — Diagnostics and Troubleshooting 350,[Description]
-NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
-10118,Action,*,User 35 Fault,[Description]
-10003,Action,*,User 4 Fault,[Description]
-10119,Action,*,User 36 Fault,[Description]
-10016,Action,*,User 5 Fault,[Description]
-10120,Action,*,User Fault,[Description]
-10017,Action,*,User 6 Fault,[Description]
-10121,Action,*,User 38 Fault,[Description]
-10018,Action,*,User 7 Fault,[Description]
-10122,Action,*,User 39 Fault,[Description]
-10019,Action,*,User 8 Fault,[Description]
-10123,Action,*,User 40 Fault,[Description]
-10032,Action,*,User 9 Fault,[Description]
-10124,Action,*,User 41 Fault,[Description]
-10033,Action,*,User 10 Fault,[Description]
-10125,Action,*,User 42 Fault,[Description]
-10034,Action,*,User 11 Fault,[Description]
-10126,Action,*,User 43 Fault,[Description]
-10035,Action,*,User 12 Fault,[Description]
-10127,Action,*,User 44 Fault,[Description]
-10048,Action,*,User 13 Fault,[Description]
-10128,Action,*,User 45 Fault,[Description]
-10049,Action,*,User 14 Fault,[Description]
-10129,Action,*,User 46 Fault,[Description]
-10050,Action,*,User 15 Fault,[Description]
-10130,Action,*,User 47 Fault,[Description]
-10051,Action,*,User 16 Fault,[Description]
-10131,Action,*,User 48 Fault,[Description]
-10064,Action,*,User 17 Fault,[Description]
-10132,Action,*,User 49 Fault,[Description]
-10065,Action,*,User 18 Fault,[Description]
-10133,Action,*,User 50 Fault,[Description]
-10066,Action,*,User 19 Fault,[Description]
-10134,Action,*,User 51 Fault,[Description]
-10067,Action,*,User 20 Fault,[Description]
-10135,Action,*,User 52 Fault,[Description]
-NaN,Action,*,7 — Diagnostics and Troubleshooting 351,[Description]
-NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
-10080,Action,*,User 21 Fault,[Description]
-10136,Action,*,User 53 Fault,[Description]
-10081,Action,*,User 22 Fault,[Description]
-10137,Action,*,User 54 Fault,[Description]
-10082,Action,*,User 23 Fault,[Description]
-10138,Action,*,User 55 Fault,[Description]
-10083,Action,*,User 24 Fault,[Description]
-10139,Action,*,User 56 Fault,[Description]
-10096,Action,*,User 25 Fault,[Description]
-10140,Action,*,User 57 Fault,[Description]
-10097,Action,*,User 26 Fault,[Description]
-10141,Action,*,User 58 Fault,[Description]
-10098,Action,*,User 27 Fault,[Description]
-10142,Action,*,User 59 Fault,[Description]
-10099,Action,*,User 28 Fault,[Description]
-10143,Action,*,User 60 Fault,[Description]
-10112,Action,*,User 29 Fault,[Description]
-10113,Action,*,User 30 Fault,[Description]
-10114,Action,*,User 31 Fault,[Description]
-10115,Action,*,User 32 Fault,[Description]
-10272,Action,*,VCL Run Time Error,[Description]
-10353,Action,*,ECC Run Time Error,[Description]
-10289,Action,*,OS General,[Description]
-9537,Action,*,PDO Timeout,[Description]
-8753,Action,*,Stall Detected,[Description]
-10304,Action,*,Supervision,[Description]
-10305,Action,*,Supervision Input Check,[Description]
-9538,Action,*,PDO Mapping Error,[Description]
-10293,Action,*,Internal Hardware,[Description]
-8474,Action,*,Motor Braking Impaired,[Description]
-10320,Action,*,Motor Characterization,[Description]
-8756,Action,*,Encoder Pulse Error,[Description]
-10257,Action,*,Parameter Out of Range,[Description]
-10261,Action,*,Bad Firmware,[Description]
-8993,Action,*,EM Brake Failed to Set,[Description]
-NaN,Action,*,7 — Diagnostics and Troubleshooting 352,[Description]
-NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
-8755,Action,*,Encoder LOS,[Description]
-9008,Action,*,Emer Rev Timeout,[Description]
-9504,Action,*,Pump Overcurrent,[Description]
-9296,Action,*,Pump BDI,[Description]
-10291,Action,*,Pump Hardware,[Description]
-10258,Action,*,Parameter Mismatch,[Description]
-9010,Action,*,Interlock Braking Supervision,[Description]
-9011,Action,*,EMR Supervision,[Description]
-8544,Action,*,Driver 1 Fault,[Description]
-8545,Action,*,Driver 2 Fault,[Description]
-8546,Action,*,Driver 3 Fault,[Description]
-8547,Action,*,Driver 4 Fault,[Description]
-8548,Action,*,Driver 5 Fault,[Description]
-8549,Action,*,Driver 6 Fault,[Description]
-8550,Action,*,Driver 7 Fault,[Description]
-9778,Action,*,Driver Assignment,[Description]
-8553,Action,*,Coil Supply,[Description]
-9760,Action,*,Analog 1 Out of Range,[Description]
-9761,Action,*,Analog 2 Out of Range,[Description]
-9762,Action,*,Analog 3 Out of Range,[Description]
-9763,Action,*,Analog 4 Out of Range,[Description]
-9764,Action,*,Analog 5 Out of Range,[Description]
-9765,Action,*,Analog 6 Out of Range,[Description]
-9766,Action,*,Analog 7 Out of Range,[Description]
-9767,Action,*,Analog 8 Out of Range,[Description]
-9768,Action,*,Analog 9 Out of Range,[Description]
-9770,Action,*,Analog 14 Out of Range,[Description]
-9777,Action,*,Analog Assignment,[Description]
-9771,Action,*,Analog 18 Out of Range,[Description]
-9772,Action,*,Analog 19 Out of Range,[Description]
-10292,Action,*,Pump Current Sensor,[Description]
-10336,Action,*,Branding Error,[Description]
-10337,Action,*,BMS Cutback,[Description]
-10338,Action,*,Differential Steering,[Description]
-9769,Action,*,PWM Input 10 Out of Range,[Description]
-NaN,Action,*,7 — Diagnostics and Troubleshooting 353,[Description]
-NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
-8454,Action,*,Analog 31 Out of Range,[Description]
-8455,Action,*,Invalid CAN Port,[Description]
-8456,Action,*,VCL Watchdog,[Description]
-8465,Action,*,Auto Baud Failure On M2,[Description]
-8467,Action,*,Primary State Error,[Description]
-8461,Action,*,PWM Input 29 Out of Range,[Description]
-8460,Action,*,PWM Input 28 out of Range,[Description]
-8463,Action,*,Force Feedback Fault,[Description]
-8452,Action,*,Lift Input,[Description]
-8449,Action,*,Phase PWM Mismatch,[Description]
-10352,Action,*,Hardware Compatibility,[Description]
-8453,Action,*,Lower Input,[Description]
-8832,Action,*,Primary Command Input,[Description]
-8476,Action,*,Hazardous Movement,[Description]
-10386,Action,*,ESTOP_MISMATCH,[Description]
-10387,Action,*,ESTOP_SRO,[Description]
-8487,Action,*,Lift Limit,[Description]
-8468,Action,*,IMU Failure,[Description]
-10384,Action,*,ERU Configuration,[Description]
-10385,Action,*,DESAT Trip,[Description]
-8490,Action,*,Memory Parity,[Description]
+9488,Action,*,Controller Overcurrent,Fault types: 1: Controller Overcurrent Phase U, V, or W 2: Deprecated 3: Deprecated 4: Irms > 120% Current Limit 5: PMAC motor speed exceeds controllers ability to safely regulate voltage 6: PMAC motor speed causes back emf to exceed controller voltage rating and controller cannot enable the bridge because KSI voltage is below brownout 7: Reserved 8: PMAC motor speed causes back emf to exceed controller voltage rating and controller cannot enable the bridge because no weakening is available for the selected motor type
+10290,Action,*,Current Sensor,Fault types: 1: Controller current reading failed to stabilize at startup 2: Controller current reading failed to stabilize after startup 3: Controller current reading outside calibrated limits while acquiring offset
+8739,Action,*,Precharge Failed,Fault types: 1: Abort 2: Energy Limit Exceeded 3: Time Limit Exceeded
+8513,Action,*, Controller Severe Undertemp,Fault types: 1: IMS severe under temp 2: Capacitor bank severe under temp
+8514,Action,*,Controller Severe Overtemp,Fault types: 1: IMS severe under temp 2: Capacitor bank severe under temp
+8480,Action,*,Severe B+ Undervoltage,Fault types: 1: Undervoltage cutback (0x343B = 0%) or capacitor voltage below safe limits for 64 ms 2: Commanded voltage could not be achieved due to low capacitor voltage, see also phase PWM mismatch
+8482,Action,*,Severe KSI Undervoltage,Fault types: 1: Brownout is disabled due to invalid product data configuration 2: Keyswitch_Voltage below brownout threshold at start up 3: Keyswitch_Voltage below low brownout threshold for 5 ms 4: Keyswitch_Voltage below high brownout threshold for 64 ms
+8496,Action,*,Severe B+ Overvoltage,Fault types: 1
+8498,Action,*,Severe KSI Overvoltage,Fault types: 1
+8499,Action,*,Speed Limit Supervision,Fault types: 1
+8500,Action,*,Motor Not Stopped,Fault types: 1: The motor moved more revolutions than the parameter, Motor_Not_ Stopped_Position_Error setting 2: The motor moved faster than the parameter, Motor_ Not_Stopped_Speed_Error (RPM) for 160 ms 3: The three-phase drive has applied an electrical frequency greater than the Motor_Not_Stopped_Max_ Frequency parameter, and applied an RMS current greater than the Motor_ Not_Stopped_Max_Current parameter for 64 ms
+8457,Action,*,Critical OS General,Fault types: 1-100: Internal Fault; contact your Curtis Instruments representative immediately 101-200: Ill-formed or corrupted application package was loaded into controller >200: Internal Fault; contact your Curtis Instruments representative immediately
+8458,Action,*,OS General 2,Fault types: <100 Internal Fault. Contact Curtis support >100: An ill-formed or corrupted application package was loaded into controller
+8464,Action,*,Reset Rejected,Fault types: 1
+8462,Action,*, Motor Short,Fault types: 1
+8512,Action,*,Controller Overtemp Cutback,Fault types: 1: Controller heatsink high temperature (affecting AC phases) 2: Controller heatsink high temperature (affecting pump phase) 3: Capacitor bank high temperature 4: AC phase FET high temperature 5: Pump phase FET high temperature 6: Low Frequency single phase high temperature
+8481,Action,*,Undervoltage Cutback,Fault types: 1
+9521,Action,*,Ext 5 V Supply Failure,Fault types: 1: The 5 V supply is outside 5 V ± 10% 2: The current is outside the limits defined by: Ext_5V_Supply_Min Ext_5V_Supply_Max
+9522,Action,*,Ext 12V Supply Failure,Fault types: 1: The 12 V supply is outside 12 V ± 15% 2: The current is outside the limits defined by: Ext_12V_Supply_Min Ext_12V_Supply_Max
+8529,Action,*,Motor Temp Hot Cutback,Fault types: 1
+8528,Action,*,Motor Temp Sensor,Fault types: 1
+8992,Action,*,EM Brake Driver,FAULT TYPES: 1
+9248,Action,*,Pump Driver Fault,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
+9264,Action,*,Load Hold Driver Fault,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
+9280,Action,*,Lower Driver Fault,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
+8752,Action,*,IM Motor Feedback,Fault types: 1: Controller saw a fast transition to zero speed (ABS_MotorSpeedFilteredexceeds Encoder_Fault_Max_Speed, then one or both encoder channels is lost) 2: Encoder supply failed 3: Sine or Cosine input differs from expected 4: Controller saw sensor failure at speed 5: Unrealistic motor acceleration seen 6: Hall switch pattern mismatch 7: Invalid Hall switch pattern 8: Resolver loss of signal 9: Resolver degradation of signal 10: Resolver loss of tracking 11: Resolver unresponsive 12: Undefined 13: QEI direction change exceeds threshold rate
+8754,Action,*,PM Motor Feedback,Fault types: 1: Controller saw a fast transition to zero speed (ABS_MotorSpeedFilteredexceeds Encoder_Fault_Max_Speed, then one or both encoder channels is lost) 2: Encoder supply failed 3: Sine or Cosine input differs from expected 4: Controller saw sensor failure at speed 5: Unrealistic motor acceleration seen 6: Hall switch pattern mismatch 7: Invalid Hall switch pattern 8: Resolver loss of signal 9: Resolver degradation of signal 10: Resolver loss of tracking 11: Resolver unresponsive 12: PMAC motor stalled
+8768,Action,*,Motor Open,Fault types: 1: Current mismatch while running 2: Reserved 3: Weld check failed to achieve commanded current 4: Voltage mismatch during startup 5: Reserved
+8736,Action,*,Main Contactor Welded,Fault types: 1
+8737,Action,*,A Motor Setup Needed,0x2103 Fault types: Bit 1: Current regulator needs to be configured Bit 2: Slip gain test needs to be run Bit 3: Base speed test needs to be run Bit 4: Automated test needs to be run Hex#: bit 1– 4 21 Binary 0000 => bits 4 3 2 1
+8451,Action,*,Main Contractor Welded,FAULT TYPES: 1
+8450,Action,*,Misalignment Error,FAULT TYPES: 1
+8720,Action,*,Throttle Input,Fault types based upon the associated Analog Input faults: 1: Outside the Low or High parameter 2: Throttle voltage exceeded the Analog Low parameter 3: Analog High parameters for the analog input defined for the throttle input 4: Input 1 fault diagnostics may be either out of range if it is configured as a voltage input or may include potentiometer faults if configured as a 2/3- wire pot
+8976,Action,*,Brake Input,FAULT TYPES: 1
+10288,Action,*,NV Memory Failure,Fault types: 1: Invalid checksum 2: NV write failed 3: NV read failed 4: NV write did not complete during power down
+10259,Action,*,Parameter Change,Fault types: Reports the CAN Object ID of parameter.
+8786,Action,*,Steer Angle Input,Fault types: 1 The Analog input source for the steer angle goes out of configured Hi/Lo range.
+8784,Action,*,Severe Dual,Fault types: 1 A severe failure has occurred on either of the controllers setup for dual drive.
+9009,Action,*,Emer Rev HPD,FAULT TYPES: 1
+8484,Action,*,Hydraulic HPD SRO Lower,FAULT TYPES: 1
+8485,Action,*,Hydraulic HPD SRO Lift,FAULT TYPES: 1
+8486,Action,*,LHS Throttle Conflict,FAULT TYPES: 1
+9009,Action,*,Emer Rev HPD,FAULT TYPES: 1
+8484,Action,*,Hydraulic HPD SRO Lower,FAULT TYPES: 1
+8485,Action,*,Hydraulic HPD SRO Lift,FAULT TYPES: 1
+8486,Action,*,LHS Throttle Conflict,FAULT TYPES: 1
+10259,Action,*,Parameter Change,FAULT TYPES: 1
+10263,Action,*,EMR Switch,Fault types: 3 1: The Emergency Reverse Switch NO input does not agree with the Emergency Reverse Switch NC input. They are opposites: NO and NC 2: EMR Switch input(s) are active within EMR_Anti_ Tiedown_Time (ms) of Key- Switch Input 3: EMR Switch input(s) are active while Interlock Switch input(s) is not active
+10000,Action,*,User 1 Fault,FAULT TYPES: 1
+10116,Action,*,User 33 Fault,FAULT TYPES: 1
+10001,Action,*,User 2 Fault,FAULT TYPES: 1
+10117,Action,*,User 34 Fault,FAULT TYPES: 1
+10002,Action,*,User 3 Fault,FAULT TYPES: 1
+NaN,Action,*,7 — Diagnostics and Troubleshooting 350,FAULT TYPES: 1
+NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
+10118,Action,*,User 35 Fault,FAULT TYPES: 1
+10003,Action,*,User 4 Fault,FAULT TYPES: 1
+10119,Action,*,User 36 Fault,FAULT TYPES: 1
+10016,Action,*,User 5 Fault,FAULT TYPES: 1
+10120,Action,*,User Fault,FAULT TYPES: 1
+10017,Action,*,User 6 Fault,FAULT TYPES: 1
+10121,Action,*,User 38 Fault,FAULT TYPES: 1
+10018,Action,*,User 7 Fault,FAULT TYPES: 1
+10122,Action,*,User 39 Fault,FAULT TYPES: 1
+10019,Action,*,User 8 Fault,FAULT TYPES: 1
+10123,Action,*,User 40 Fault,FAULT TYPES: 1
+10032,Action,*,User 9 Fault,FAULT TYPES: 1
+10124,Action,*,User 41 Fault,FAULT TYPES: 1
+10033,Action,*,User 10 Fault,FAULT TYPES: 1
+10125,Action,*,User 42 Fault,FAULT TYPES: 1
+10034,Action,*,User 11 Fault,FAULT TYPES: 1
+10126,Action,*,User 43 Fault,FAULT TYPES: 1
+10035,Action,*,User 12 Fault,FAULT TYPES: 1
+10127,Action,*,User 44 Fault,FAULT TYPES: 1
+10048,Action,*,User 13 Fault,FAULT TYPES: 1
+10128,Action,*,User 45 Fault,FAULT TYPES: 1
+10049,Action,*,User 14 Fault,FAULT TYPES: 1
+10129,Action,*,User 46 Fault,FAULT TYPES: 1
+10050,Action,*,User 15 Fault,FAULT TYPES: 1
+10130,Action,*,User 47 Fault,FAULT TYPES: 1
+10051,Action,*,User 16 Fault,FAULT TYPES: 1
+10131,Action,*,User 48 Fault,FAULT TYPES: 1
+10064,Action,*,User 17 Fault,FAULT TYPES: 1
+10132,Action,*,User 49 Fault,FAULT TYPES: 1
+10065,Action,*,User 18 Fault,FAULT TYPES: 1
+10133,Action,*,User 50 Fault,FAULT TYPES: 1
+10066,Action,*,User 19 Fault,FAULT TYPES: 1
+10134,Action,*,User 51 Fault,FAULT TYPES: 1
+10067,Action,*,User 20 Fault,FAULT TYPES: 1
+10135,Action,*,User 52 Fault,FAULT TYPES: 1
+NaN,Action,*,7 — Diagnostics and Troubleshooting 351,FAULT TYPES: 1
+NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
+10080,Action,*,User 21 Fault,FAULT TYPES: 1
+10136,Action,*,User 53 Fault,FAULT TYPES: 1
+10081,Action,*,User 22 Fault,FAULT TYPES: 1
+10137,Action,*,User 54 Fault,FAULT TYPES: 1
+10082,Action,*,User 23 Fault,FAULT TYPES: 1
+10138,Action,*,User 55 Fault,FAULT TYPES: 1
+10083,Action,*,User 24 Fault,FAULT TYPES: 1
+10139,Action,*,User 56 Fault,FAULT TYPES: 1
+10096,Action,*,User 25 Fault,FAULT TYPES: 1
+10140,Action,*,User 57 Fault,FAULT TYPES: 1
+10097,Action,*,User 26 Fault,FAULT TYPES: 1
+10141,Action,*,User 58 Fault,FAULT TYPES: 1
+10098,Action,*,User 27 Fault,FAULT TYPES: 1
+10142,Action,*,User 59 Fault,FAULT TYPES: 1
+10099,Action,*,User 28 Fault,FAULT TYPES: 1
+10143,Action,*,User 60 Fault,FAULT TYPES: 1
+10112,Action,*,User 29 Fault,FAULT TYPES: 1
+10113,Action,*,User 30 Fault,FAULT TYPES: 1
+10114,Action,*,User 31 Fault,FAULT TYPES: 1
+10115,Action,*,User 32 Fault,FAULT TYPES: 1
+10272,Action,*,VCL Run Time Error,FAULT TYPES: 1
+10353,Action,*,ECC Run Time Error,Fault types: 0: Hard fault 1: Memory violation. 2: Bus vault 3: Usage vault 4: Stack vault 5: CPU usage fault 100: Heap fault 101: Unhandled exception 10000 (and above) ccapi exception exit All other codes are application-specific exit codes
+10289,Action,*,OS General,FAULT TYPES: 1
+9537,Action,*,PDO Timeout,Fault types: Number (1-4) corresponding with the PDO that has timed out.
+8753,Action,*,Stall Detected,Fault types: 1 Set Conditions: Motor speed is less than Enc_Fault_Stall_Speed for Enc_Fault_Stall_Time, and Brake_Command is zero and Throttle_Command is active For Speed and Torque Modes, current is greater than 90 percent of available For Direct Torque Mode, torque request is greater than 90 percent
+10304,Action,*,Supervision,FAULT TYPES: 1
+10305,Action,*,Supervision Input Check,FAULT TYPES: 1
+9538,Action,*,PDO Mapping Error,FAULT TYPES: 1
+10293,Action,*,Internal Hardware,FAULT TYPES: 1
+8474,Action,*,Motor Braking Impaired,FAULT TYPES: 1
+10320,Action,*,Motor Characterization,FAULT TYPES: 1
+8756,Action,*,Encoder Pulse Error,FAULT TYPES: 1
+10257,Action,*,Parameter Out of Range,FAULT TYPES: 1
+10261,Action,*,Bad Firmware,FAULT TYPES: 1
+8993,Action,*,EM Brake Failed to Set,FAULT TYPES: 1
+NaN,Action,*,7 — Diagnostics and Troubleshooting 352,FAULT TYPES: 1
+NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
+8755,Action,*,Encoder LOS,FAULT TYPES: 1
+9008,Action,*,Emer Rev Timeout,FAULT TYPES: 1
+9504,Action,*,Pump Overcurrent,FAULT TYPES: 1
+9296,Action,*,Pump BDI,FAULT TYPES: 1
+10291,Action,*,Pump Hardware,FAULT TYPES: 1
+10258,Action,*,Parameter Mismatch,FAULT TYPES: 1
+9010,Action,*,Interlock Braking Supervision,FAULT TYPES: 1
+9011,Action,*,EMR Supervision,FAULT TYPES: 1
+8544,Action,*,Driver 1 Fault,FAULT TYPES: 1
+8545,Action,*,Driver 2 Fault,FAULT TYPES: 1
+8546,Action,*,Driver 3 Fault,FAULT TYPES: 1
+8547,Action,*,Driver 4 Fault,FAULT TYPES: 1
+8548,Action,*,Driver 5 Fault,FAULT TYPES: 1
+8549,Action,*,Driver 6 Fault,FAULT TYPES: 1
+8550,Action,*,Driver 7 Fault,FAULT TYPES: 1
+9778,Action,*,Driver Assignment,FAULT TYPES: 1
+8553,Action,*,Coil Supply,FAULT TYPES: 1
+9760,Action,*,Analog 1 Out of Range,FAULT TYPES: 1
+9761,Action,*,Analog 2 Out of Range,FAULT TYPES: 1
+9762,Action,*,Analog 3 Out of Range,FAULT TYPES: 1
+9763,Action,*,Analog 4 Out of Range,FAULT TYPES: 1
+9764,Action,*,Analog 5 Out of Range,FAULT TYPES: 1
+9765,Action,*,Analog 6 Out of Range,FAULT TYPES: 1
+9766,Action,*,Analog 7 Out of Range,FAULT TYPES: 1
+9767,Action,*,Analog 8 Out of Range,FAULT TYPES: 1
+9768,Action,*,Analog 9 Out of Range,FAULT TYPES: 1
+9770,Action,*,Analog 14 Out of Range,FAULT TYPES: 1
+9777,Action,*,Analog Assignment,FAULT TYPES: 1
+9771,Action,*,Analog 18 Out of Range,FAULT TYPES: 1
+9772,Action,*,Analog 19 Out of Range,FAULT TYPES: 1
+10292,Action,*,Pump Current Sensor,FAULT TYPES: 1
+10336,Action,*,Branding Error,FAULT TYPES: 1
+10337,Action,*,BMS Cutback,FAULT TYPES: 1
+10338,Action,*,Differential Steering,FAULT TYPES: 1
+9769,Action,*,PWM Input 10 Out of Range,FAULT TYPES: 1
+NaN,Action,*,7 — Diagnostics and Troubleshooting 353,FAULT TYPES: 1
+NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
+8454,Action,*,Analog 31 Out of Range,FAULT TYPES: 1
+8455,Action,*,Invalid CAN Port,FAULT TYPES: 1
+8456,Action,*,VCL Watchdog,FAULT TYPES: 1
+8465,Action,*,Auto Baud Failure On M2,FAULT TYPES: 1
+8467,Action,*,Primary State Error,FAULT TYPES: 1
+8461,Action,*,PWM Input 29 Out of Range,FAULT TYPES: 1
+8460,Action,*,PWM Input 28 out of Range,FAULT TYPES: 1
+8463,Action,*,Force Feedback Fault,FAULT TYPES: 1
+8452,Action,*,Lift Input,FAULT TYPES: 1
+8449,Action,*,Phase PWM Mismatch,FAULT TYPES: 1
+10352,Action,*,Hardware Compatibility,FAULT TYPES: 1
+8453,Action,*,Lower Input,FAULT TYPES: 1
+8832,Action,*,Primary Command Input,FAULT TYPES: 1
+8476,Action,*,Hazardous Movement,FAULT TYPES: 1
+10386,Action,*,ESTOP_MISMATCH,FAULT TYPES: 1
+10387,Action,*,ESTOP_SRO,FAULT TYPES: 1
+8487,Action,*,Lift Limit,FAULT TYPES: 1
+8468,Action,*,IMU Failure,FAULT TYPES: 1
+10384,Action,*,ERU Configuration,FAULT TYPES: 1
+10385,Action,*,DESAT Trip,FAULT TYPES: 1
+8490,Action,*,Memory Parity,FAULT TYPES: 1
+8497,Action,*,Overvoltage Cutback,Fault types: 1
 10018,Action,*,User 7 Fault,Description :P
 10034,Action,*,User 11 Fault, Description :P
 10001,Action,*,User 2 Fault, Description :P
 10033,Action,*,User 10 Fault,Description :P
 10048,Action,*,User 13 Fault,Description :P
 10051,Action,*,User 16 Fault,Description :P
-8738,Action,*,Main Driver,Description :P
+8738,Action,*,Main Driver,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
 164,Action,*,Driver 4 Fault,Description :P
 165,Action,*,Driver 4 Fault,Description :P
 166,Action,*,Driver 4 Fault,Description :P

@@ -18,39 +18,43 @@
 166,5,empty,empty,empty,empty
 167,5,empty,empty,empty,empty
 37,5,empty,empty,empty,empty
-9488,Action,*,Controller Overcurrent,[Description]
-8739,Action,*,Precharge Failed,[Description]
-8513,Action,*,Controller Severe Undertemperature,[Description]
-8514,Action,*,Controller Severe Overtemperature,[Description]
-8480,Action,*,Severe B+ Undervoltage,[Description]
-8482,Action,*,Severe KSI Undervoltage,[Description]
-8498,Action,*,Severe KSI Overvoltage,[Description]
-8499,Action,*,Speed Limit Supervision,[Description]
-8500,Action,*,Motor Not Stopped,[Description]
-8457,Action,*,Critical OS General,[Description]
-8458,Action,*,OS General 2,[Description]
-8464,Action,*,Reset Rejected,[Description]
-8462,Action,*,Motor Short,[Description]
-8512,Action,*,Controller Overtemperature Cutback,[Description]
-8481,Action,*,Undervoltage Cutback,[Description]
-9521,Action,*,Ext 5V Supply Failure,[Description]
-8529,Action,*,Motor Temp Hot Cutback,[Description]
-8528,Action,*,Motor Temp Sensor,[Description]
+9488,Action,*,Controller Overcurrent,Fault types: 1: Controller Overcurrent Phase U, V, or W 2: Deprecated 3: Deprecated 4: Irms > 120% Current Limit 5: PMAC motor speed exceeds controllers ability to safely regulate voltage 6: PMAC motor speed causes back emf to exceed controller voltage rating and controller cannot enable the bridge because KSI voltage is below brownout 7: Reserved 8: PMAC motor speed causes back emf to exceed controller voltage rating and controller cannot enable the bridge because no weakening is available for the selected motor type
+8739,Action,*,Precharge Failed,Fault types: 1: Abort 2: Energy Limit Exceeded 3: Time Limit Exceeded
+8513,Action,*, Controller Severe Undertemp,Fault types: 1: IMS severe under temp 2: Capacitor bank severe under temp
+8514,Action,*,Controller Severe Overtemp,Fault types: 1: IMS severe under temp 2: Capacitor bank severe under temp
+8480,Action,*,Severe B+ Undervoltage,Fault types: 1: Undervoltage cutback (0x343B = 0%) or capacitor voltage below safe limits for 64 ms 2: Commanded voltage could not be achieved due to low capacitor voltage, see also phase PWM mismatch
+8482,Action,*,Severe KSI Undervoltage,Fault types: 1: Brownout is disabled due to invalid product data configuration 2: Keyswitch_Voltage below brownout threshold at start up 3: Keyswitch_Voltage below low brownout threshold for 5 ms 4: Keyswitch_Voltage below high brownout threshold for 64 ms
+8497,Action,*,Overvoltage Cutback,Fault types: 1
+8498,Action,*,Severe KSI Overvoltage,Fault types: 1
+8499,Action,*,Speed Limit Supervision,Fault types: 1
+8500,Action,*,Motor Not Stopped,Fault types: 1: The motor moved more revolutions than the parameter, Motor_Not_ Stopped_Position_Error setting 2: The motor moved faster than the parameter, Motor_ Not_Stopped_Speed_Error (RPM) for 160 ms 3: The three-phase drive has applied an electrical frequency greater than the Motor_Not_Stopped_Max_ Frequency parameter, and applied an RMS current greater than the Motor_ Not_Stopped_Max_Current parameter for 64 ms
+8457,Action,*,Critical OS General,Fault types: 1-100: Internal Fault; contact your Curtis Instruments representative immediately 101-200: Ill-formed or corrupted application package was loaded into controller >200: Internal Fault; contact your Curtis Instruments representative immediately
+8458,Action,*,OS General 2,Fault types: <100 Internal Fault. Contact Curtis support >100: An ill-formed or corrupted application package was loaded into controller
+8464,Action,*,Reset Rejected,Fault types: 1
+8462,Action,*, Motor Short,Fault types: 1
+8512,Action,*,Controller Overtemp Cutback,Fault types: 1: Controller heatsink high temperature (affecting AC phases) 2: Controller heatsink high temperature (affecting pump phase) 3: Capacitor bank high temperature 4: AC phase FET high temperature 5: Pump phase FET high temperature 6: Low Frequency single phase high temperature
+8481,Action,*,Undervoltage Cutback,Fault types: 1
+9521,Action,*,Ext 5 V Supply Failure,Fault types: 1: The 5 V supply is outside 5 V ± 10% 2: The current is outside the limits defined by: Ext_5V_Supply_Min Ext_5V_Supply_Max
+9522,Action,*,Ext 12V Supply Failure,Fault types: 1: The 12 V supply is outside 12 V ± 15% 2: The current is outside the limits defined by: Ext_12V_Supply_Min Ext_12V_Supply_Max
+8529,Action,*,Motor Temp Hot Cutback,Fault types: 1
+8528,Action,*,Motor Temp Sensor,Fault types: 1
 8992,Action,*,EM Brake Driver,[Description]
-9248,Action,*,Pump Driver,[Description]
-9264,Action,*,Load-Hold Driver,[Description]
-9280,Action,*,Lower Driver,[Description]
-8752,Action,*,IM Motor Feedback,[Description]
-8754,Action,*,Sin Cos Motor Feedback,[Description]
-8768,Action,*,Motor Open,[Description]
-8736,Action,*,Main Contractor Did Not Close,[Description]
-8737,Action,*,Motor Setup Needed,[Description]
+9248,Action,*,Pump Driver Fault,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
+9264,Action,*,Load Hold Driver Fault,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
+9280,Action,*,Lower Driver Fault,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
+8752,Action,*,IM Motor Feedback,Fault types: 1: Controller saw a fast transition to zero speed (ABS_MotorSpeedFilteredexceeds Encoder_Fault_Max_Speed, then one or both encoder channels is lost) 2: Encoder supply failed 3: Sine or Cosine input differs from expected 4: Controller saw sensor failure at speed 5: Unrealistic motor acceleration seen 6: Hall switch pattern mismatch 7: Invalid Hall switch pattern 8: Resolver loss of signal 9: Resolver degradation of signal 10: Resolver loss of tracking 11: Resolver unresponsive 12: Undefined 13: QEI direction change exceeds threshold rate
+8754,Action,*,PM Motor Feedback,Fault types: 1: Controller saw a fast transition to zero speed (ABS_MotorSpeedFilteredexceeds Encoder_Fault_Max_Speed, then one or both encoder channels is lost) 2: Encoder supply failed 3: Sine or Cosine input differs from expected 4: Controller saw sensor failure at speed 5: Unrealistic motor acceleration seen 6: Hall switch pattern mismatch 7: Invalid Hall switch pattern 8: Resolver loss of signal 9: Resolver degradation of signal 10: Resolver loss of tracking 11: Resolver unresponsive 12: PMAC motor stalled
+8768,Action,*,Motor Open,Fault types: 1: Current mismatch while running 2: Reserved 3: Weld check failed to achieve commanded current 4: Voltage mismatch during startup 5: Reserved
+8736,Action,*,Main Contactor Welded,Fault types: 1
+8737,Action,*,A Motor Setup Needed,0x2103 Fault types: Bit 1: Current regulator needs to be configured Bit 2: Slip gain test needs to be run Bit 3: Base speed test needs to be run Bit 4: Automated test needs to be run Hex#: bit 1– 4 21 Binary 0000 => bits 4 3 2 1
 8451,Action,*,Main Contractor Welded,[Description]
 8450,Action,*,Misalignment Error,[Description]
-8720,Action,*,Throttle Input,[Description]
+8720,Action,*,Throttle Input,Fault types based upon the associated Analog Input faults: 1: Outside the Low or High parameter 2: Throttle voltage exceeded the Analog Low parameter 3: Analog High parameters for the analog input defined for the throttle input 4: Input 1 fault diagnostics may be either out of range if it is configured as a voltage input or may include potentiometer faults if configured as a 2/3- wire pot
 8976,Action,*,Brake Input,[Description]
-10288,Action,*,NV Memory Failure,[Description]
-8721,Action,*,HPD Sequencing,[Description]
+8786,Action,*,Steer Angle Input,Fault types: 1 The Analog input source for the steer angle goes out of configured Hi/Lo range.
+8784,Action,*,Severe Dual,Fault types: 1 A severe failure has occurred on either of the controllers setup for dual drive.
+10288,Action,*,NV Memory Failure,Fault types: 1: Invalid checksum 2: NV write failed 3: NV read failed 4: NV write did not complete during power down
+8721,Action,*,HPD Sequencing,Fault types: Type 1 – 9 - HPD depends on HPD_SRO_Type Type 10 - Interlock anti- tiedown
 9009,Action,*,Emer Rev HPD,[Description]
 8484,Action,*,Hydraulic HPD SRO Lower,[Description]
 8485,Action,*,Hydraulic HPD SRO Lift,[Description]
@@ -59,8 +63,8 @@
 8484,Action,*,Hydraulic HPD SRO Lower,[Description]
 8485,Action,*,Hydraulic HPD SRO Lift,[Description]
 8486,Action,*,LHS Throttle Conflict,[Description]
-10259,Action,*,Parameter Change,[Description]
-10263,Action,*,EMR Switch,[Description]
+10259,Action,*,Parameter Change,Fault types: Reports the CAN Object ID of parameter.
+10263,Action,*,EMR Switch,Fault types: 3 1: The Emergency Reverse Switch NO input does not agree with the Emergency Reverse Switch NC input. They are opposites: NO and NC 2: EMR Switch input(s) are active within EMR_Anti_ Tiedown_Time (ms) of Key- Switch Input 3: EMR Switch input(s) are active while Interlock Switch input(s) is not active
 10000,Action,*,User 1 Fault,[Description]
 10116,Action,*,User 33 Fault,[Description]
 10001,Action,*,User 2 Fault,[Description]
@@ -126,10 +130,10 @@ NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
 10114,Action,*,User 31 Fault,[Description]
 10115,Action,*,User 32 Fault,[Description]
 10272,Action,*,VCL Run Time Error,[Description]
-10353,Action,*,ECC Run Time Error,[Description]
+10353,Action,*,ECC Run Time Error,Fault types: 0: Hard fault 1: Memory violation. 2: Bus vault 3: Usage vault 4: Stack vault 5: CPU usage fault 100: Heap fault 101: Unhandled exception 10000 (and above) ccapi exception exit All other codes are application-specific exit codes
 10289,Action,*,OS General,[Description]
-9537,Action,*,PDO Timeout,[Description]
-8753,Action,*,Stall Detected,[Description]
+9537,Action,*,PDO Timeout,Fault types: Number (1-4) corresponding with the PDO that has timed out.
+8753,Action,*,Stall Detected,Fault types: 1 Set Conditions: Motor speed is less than Enc_Fault_Stall_Speed for Enc_Fault_Stall_Time, and Brake_Command is zero and Throttle_Command is active For Speed and Torque Modes, current is greater than 90 percent of available For Direct Torque Mode, torque request is greater than 90 percent
 10304,Action,*,Supervision,[Description]
 10305,Action,*,Supervision Input Check,[Description]
 9538,Action,*,PDO Mapping Error,[Description]
@@ -147,6 +151,7 @@ NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
 9504,Action,*,Pump Overcurrent,[Description]
 9296,Action,*,Pump BDI,[Description]
 10291,Action,*,Pump Hardware,[Description]
+10290,Action,*,Current Sensor,Fault types: 1: Controller current reading failed to stabilize at startup 2: Controller current reading failed to stabilize after startup 3: Controller current reading outside calibrated limits while acquiring offset
 10258,Action,*,Parameter Mismatch,[Description]
 9010,Action,*,Interlock Braking Supervision,[Description]
 9011,Action,*,EMR Supervision,[Description]
@@ -200,7 +205,7 @@ NaN,Action,*,Flash Code Fault Name CAN Index,[Description]
 10384,Action,*,ERU Configuration,[Description]
 10385,Action,*,DESAT Trip,[Description]
 8490,Action,*,Memory Parity,[Description]
-8738,Action,*,Main Driver,Description :P
+8738,Action,*,Main Driver,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
 10018,Action,*,User 7 Fault,Description :P
 10048,Action,*,User 13 Fault,Description :P
 10033,Action,*,User 10 Fault,Description :P

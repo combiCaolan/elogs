@@ -169,46 +169,71 @@ function ArrayReadLogs() {
 
 		ActionCode = Number(LogFile.split('\n')[counter].split(';')[1]);
 
+		// FOR F SERIES CONTROLLER TYPES
+		// STRUCTURE EXAMPLE
+		// 1718973010;164;8738;49;5;0;0;0;
+		// [time];[CONTROLLER];[CAN Index];[FLASH CODE];[FAULT TYPE];[?];[?];
 		if ([164, 165, 166, 167, 168].includes(ActionCode)) {
 			document.getElementById('combi-version-type-heading').innerHTML = 'F-SERIES TYPE';
 			// F-SERIES TYPE
 			// if (FileType != '500') {
-				utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
-				Line = {};
-				Line["t"] = utcSeconds;
-				Line["tl"] = 'TimeStamp';
+			utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
+			Line = {};
+			Line["t"] = utcSeconds;
+			Line["tl"] = 'TimeStamp';
 
+			const controllerList = {
+				164: "A4TRR",
+				165: 'A5TRL',
+				166: 'A6TFR',
+				167: 'A7TFL',
+				168: 'A8PUMP'
+			}
 
-				const controllerList = {
-					164 : "A4TRR",
-					165 : 'A5TRL',
-					166 : 'A6TFR',
-					167 : 'A7TFL',
-					168 : 'A8PUMP'
-				}
+			Line["d"] = controllerList[LogFile.split('\n')[counter].split(';')[1]];
+			Line["dl"] = 'Controller';
+			console.log(LogFile.split('\n')[counter].split(';')[1]);
+			// Line["el"] = 'Controller';
 
-				Line["d"] = controllerList[LogFile.split('\n')[counter].split(';')[1]];
-				Line["dl"] = 'Controller';
-				console.log(LogFile.split('\n')[counter].split(';')[1]);
-				// Line["el"] = 'Controller';
+			Scale = ScaleDictionary[ActionCode];
+			Units = UnitsDictionary[ActionCode];
+			Description = DescriptionDictionary[ActionCode];
 
-				Description = DescriptionDictionary[('' + ActionCode)];
-				console.log(('' + ActionCode));
-				console.log(typeof(ActionCode));
-				console.log(Description);
-				Line["desc"] = Description;
+			// try {
+			// 	if (Scale[0] == '*') {
+			// 		//means do the Log Key
+			// 		ShowValue = Units;
+			// 	} else {
+			// 		//Value is going to be the original value from log file
+			// 		Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
 
-
-				console.log(Line);
-				
-				// present logs
-				MasterArray.push(Line);
-
-				// controller
-				// CAN_Index
-				// FlashCode
-				// FaultType
+			// 		ShowValue = Value.toFixed(2) + ' ' + Units;
+			// 	}
+			// } catch (err) {
+			// 	ShowValue = 'NA';
 			// }
+
+			Line["e"] = UnitsDictionary[LogFile.split('\n')[counter].split(';')[2]];
+			Line["el"] = "Log event";
+
+			Description = DescriptionDictionary[('' + ActionCode)];
+			console.log(('' + ActionCode));
+			console.log(typeof (ActionCode));
+			console.log(Description);
+			Line["desc"] = Description;
+
+
+			console.log(Line);
+
+			// present logs
+			MasterArray.push(Line);
+
+			// controller
+			// CAN_Index
+			// FlashCode
+			// FaultType
+			// }
+
 		} else {
 			utcSeconds = Number(LogFile.split('\n')[counter].split(';')[0]);
 			Line = {};
@@ -496,7 +521,6 @@ function ArrayReadLogs() {
 						MasterArray.push(Line);
 					}
 					Line = {};
-
 				}
 			}
 		}

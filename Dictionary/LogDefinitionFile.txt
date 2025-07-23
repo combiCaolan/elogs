@@ -1,5 +1,12 @@
 XXX,Label,Scale,Units,Description
 empty,Fault,*, , 
+10018,Action,*,User 7 Fault,Description :P
+10034,Action,*,User 11 Fault, Description :P
+10001,Action,*,User 2 Fault, Description :P
+10033,Action,*,User 10 Fault,Description :P
+10048,Action,*,User 13 Fault,Description :P
+10051,Action,*,User 16 Fault,Description :P
+8738,Action,*,Main Driver,Description :P
 164,Action,*,Driver 4 Fault,Description :P
 165,Action,*,Driver 4 Fault,Description :P
 166,Action,*,Driver 4 Fault,Description :P

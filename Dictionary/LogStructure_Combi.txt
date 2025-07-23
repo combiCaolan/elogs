@@ -18,6 +18,12 @@
 166,5,empty,empty,empty,empty
 167,5,empty,empty,empty,empty
 37,5,empty,empty,empty,empty
+8738,Action,*,Main Driver,Description :P
+10018,Action,*,User 7 Fault,Description :P
+10048,Action,*,User 13 Fault,Description :P
+10033,Action,*,User 10 Fault,Description :P
+10034,Action,*,User 11 Fault, Description :P
+10051,Action,*,User 16 Fault,Description :P
 100,5,empty,empty,empty,empty
 101,5,KSW_hour,Inter_hour,Trac_hour,Active_User
 102,5,KSW_hour,Inter_hour,Trac_hour,Active_User

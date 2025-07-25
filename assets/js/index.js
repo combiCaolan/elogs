@@ -183,11 +183,11 @@ function ArrayReadLogs() {
 			Line["tl"] = 'TimeStamp';
 
 			const controllerList = {
-				164: "A4TRR",
-				165: 'A5TRL',
-				166: 'A6TFR',
-				167: 'A7TFL',
-				168: 'A8PUMP'
+				164: "TRR",
+				165: 'TRL',
+				166: 'TFR',
+				167: 'TFL',
+				168: 'PUMP'
 			}
 
 			Line["d"] = controllerList[LogFile.split('\n')[counter].split(';')[1]];

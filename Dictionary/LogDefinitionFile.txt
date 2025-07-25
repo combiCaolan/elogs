@@ -38,6 +38,7 @@ empty,Fault,*, ,
 10259,Action,*,Parameter Change,Fault types: Reports the CAN Object ID of parameter.
 8786,Action,*,Steer Angle Input,Fault types: 1 The Analog input source for the steer angle goes out of configured Hi/Lo range.
 8784,Action,*,Severe Dual,Fault types: 1 A severe failure has occurred on either of the controllers setup for dual drive.
+9552,Action,*,Insulation Resistance Low,Fault types: 1 Applies to controllers that support dual voltages. Appears where logic is powered separately from B+. The diagnostic monitors the insulation resistance between the high power section and the chassis.
 9009,Action,*,Emer Rev HPD,FAULT TYPES: 1
 8484,Action,*,Hydraulic HPD SRO Lower,FAULT TYPES: 1
 8485,Action,*,Hydraulic HPD SRO Lift,FAULT TYPES: 1
@@ -117,24 +118,25 @@ NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
 10289,Action,*,OS General,FAULT TYPES: 1
 9537,Action,*,PDO Timeout,Fault types: Number (1-4) corresponding with the PDO that has timed out.
 8753,Action,*,Stall Detected,Fault types: 1 Set Conditions: Motor speed is less than Enc_Fault_Stall_Speed for Enc_Fault_Stall_Time, and Brake_Command is zero and Throttle_Command is active For Speed and Torque Modes, current is greater than 90 percent of available For Direct Torque Mode, torque request is greater than 90 percent
-10304,Action,*,Supervision,FAULT TYPES: 1
+10304,Action,*,Supervision,Fault types: 1-4: Primary Init Error 10: Primary Task Queue Check 12: Primary ALU Check 13: Primary Message Watchdog 100-103: Supervisor Init Error 104-108: Supervisor Write Error 109: Supervisor Task Queue Check 110: Supervisor ALU Check 111: Supervisor Message Watchdog 113-118: Supervisor Firmware Update Failure 119: Supervisor CRC Check
 10305,Action,*,Supervision Input Check,FAULT TYPES: 1
 9538,Action,*,PDO Mapping Error,FAULT TYPES: 1
-10293,Action,*,Internal Hardware,FAULT TYPES: 1
+10293,Action,*,Internal Hardware,Fault types: Curtis hardware code.
+8472,Action,*,Secondary Feedback Input,Fault Types: 1: Controller detected a fast transition to zero speed 2: Encoder supply failed
 8474,Action,*,Motor Braking Impaired,FAULT TYPES: 1
-10320,Action,*,Motor Characterization,FAULT TYPES: 1
+10320,Action,*,Motor Characterization Error,A list of fault types for this fault is available in Fault Types: Motor Characterization Error (8-7).
 8756,Action,*,Encoder Pulse Error,FAULT TYPES: 1
-10257,Action,*,Parameter Out of Range,FAULT TYPES: 1
+10257,Action,*,Parameter Out of Range,Fault types: Reports the CAN Object ID of parameter.
 10261,Action,*,Bad Firmware,FAULT TYPES: 1
-8993,Action,*,EM Brake Failed to Set,FAULT TYPES: 1
+8993,Action,*,EM Brake Failed To Set,Fault types: 1: Vehicle movement sensed after the EM Brake has been commanded to set 2: Vehicle movement more than EM_Brake_Test_Threshold sensed during EM Brake Test 3: Vehicle not reaching 90% of the requested torque target, forward direction. 4: Vehicle not reaching 90% of the requested torque target, reverse direction.
 NaN,Action,*,7 — Diagnostics and Troubleshooting 352,FAULT TYPES: 1
 NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
 8755,Action,*,Encoder LOS,FAULT TYPES: 1
 9008,Action,*,Emer Rev Timeout,FAULT TYPES: 1
-9504,Action,*,Pump Overcurrent,FAULT TYPES: 1
+9504,Action,*,Pump Overcurrent,Fault types: 1: Pump current-sensor value is close to its supply voltage 2: Pump current-sensor value is close to the sensor ground 3: The pump current has exceeded the configured limit
 9296,Action,*,Pump BDI,FAULT TYPES: 1
-10291,Action,*,Pump Hardware,FAULT TYPES: 1
-10258,Action,*,Parameter Mismatch,FAULT TYPES: 1
+10291,Action,*,Pump Hardware,Fault types: 1: Unused 2: Mismatch of the commanded pump duty cycle vs. output
+10258,Action,*, Parameter Mismatch,A list of fault types for this fault is available in Fault Types: Parameter Mismatch (9-9).
 9010,Action,*,Interlock Braking Supervision,FAULT TYPES: 1
 9011,Action,*,EMR Supervision,FAULT TYPES: 1
 8544,Action,*,Driver 1 Fault,FAULT TYPES: 1

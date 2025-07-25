@@ -137,17 +137,17 @@ NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
 9296,Action,*,Pump BDI,FAULT TYPES: 1
 10291,Action,*,Pump Hardware,Fault types: 1: Unused 2: Mismatch of the commanded pump duty cycle vs. output
 10258,Action,*, Parameter Mismatch,A list of fault types for this fault is available in Fault Types: Parameter Mismatch (9-9).
-9010,Action,*,Interlock Braking Supervision,FAULT TYPES: 1
+9010,Action,*,Interlock Braking Supervision,Fault types: 1: Motor Speed did not ramp down fast enough to meet configuration (set by Interlock_Brake_Supervision_Ramp_De lay and Interlock_Brake_Superivsion_Ramp_Ra te). 2: Vehicle brought to stop, but then EM brake (if configured) failed to set 3: Vehicle brought to stop, but then traversed a distance beyond that set by Interlock_Brake_ Supervision_Position_ Settling_Limit
 9011,Action,*,EMR Supervision,FAULT TYPES: 1
-8544,Action,*,Driver 1 Fault,FAULT TYPES: 1
-8545,Action,*,Driver 2 Fault,FAULT TYPES: 1
-8546,Action,*,Driver 3 Fault,FAULT TYPES: 1
-8547,Action,*,Driver 4 Fault,FAULT TYPES: 1
-8548,Action,*,Driver 5 Fault,FAULT TYPES: 1
-8549,Action,*,Driver 6 Fault,FAULT TYPES: 1
-8550,Action,*,Driver 7 Fault,FAULT TYPES: 1
-9778,Action,*,Driver Assignment,FAULT TYPES: 1
-8553,Action,*,Coil Supply,FAULT TYPES: 1
+8544,Action,*,Driver 1 Fault,Driver 1 Fault
+8544,Action,*,Driver 2 Fault,Driver 1 Fault
+8544,Action,*,Driver 3 Fault,Driver 1 Fault
+8544,Action,*,Driver 4 Fault,Driver 1 Fault
+8544,Action,*,Driver 5 Fault,Driver 1 Fault
+8544,Action,*,Driver 6 Fault,Driver 1 Fault
+8544,Action,*,Driver 7 Fault,Driver 1 Fault
+9778,Action,*,Driver Assignment,Fault types: 5 {X}: Driver number that caused the fault.
+8553,Action,*,Coil Supply,Fault types: 1: Short to B- or hardware fault 2: One or more drivers that have the drivers checks configured as “Safety Designated” did not shut down when commanded to do so 3: Coil supply startup enable check failed 4: Coil supply startup disable check failed 5: Coil supply synchronization failed
 9760,Action,*,Analog 1 Out of Range,FAULT TYPES: 1
 9761,Action,*,Analog 2 Out of Range,FAULT TYPES: 1
 9762,Action,*,Analog 3 Out of Range,FAULT TYPES: 1
@@ -158,50 +158,50 @@ NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
 9767,Action,*,Analog 8 Out of Range,FAULT TYPES: 1
 9768,Action,*,Analog 9 Out of Range,FAULT TYPES: 1
 9770,Action,*,Analog 14 Out of Range,FAULT TYPES: 1
-9777,Action,*,Analog Assignment,FAULT TYPES: 1
+9777,Action,*,Analog Assignment,Fault types: 13 {X = 1-9, 14, 18-19, 31} X: Analog Input number associated with the fault.
 9771,Action,*,Analog 18 Out of Range,FAULT TYPES: 1
 9772,Action,*,Analog 19 Out of Range,FAULT TYPES: 1
 10292,Action,*,Pump Current Sensor,FAULT TYPES: 1
 10336,Action,*,Branding Error,FAULT TYPES: 1
-10337,Action,*,BMS Cutback,FAULT TYPES: 1
+10337,Action,*,BMS Cutback,Fault types: 1: Battery Current Cutback 2: Low Cell Cutback 3: High Cell Cutback
 10338,Action,*,Differential Steering,FAULT TYPES: 1
-9769,Action,*,PWM Input 10 Out of Range,FAULT TYPES: 1
+9769,Action,*,PWM Input 10 Out of Range,Fault types: 1. The input is disconnected 2. The measured input frequency is below the (PWM_Input_10_Low_Frequency) – (PWM_Input_10_Frequency_Fault_To lerance 3. The measured input frequency is above the (PWM_Input_10_High_Frequency) + (PWM_Input_10_Frequency_Fault_To lerance) 4. The measured duty cycle is below set limits, (PWM_Input_10_Low_Duty_Cycle) – (PWM_Input_10_Duty_Cycle_Fault_T olerance) 5. The measured duty cycle is above set limits, (PWM_Input_10_High_Duty_Cycle) + (PWM_Input_10_Duty_Cycle_Fault_T olerance)
 NaN,Action,*,7 — Diagnostics and Troubleshooting 353,FAULT TYPES: 1
 NaN,Action,*,Flash Code Fault Name CAN Index,FAULT TYPES: 1
-8454,Action,*,Analog 31 Out of Range,FAULT TYPES: 1
+8454,Action,*,Analog 31 Out of Range,Fault types: 1: Voltage out of range (above the high limit or below the low limit). 2: Pot Resistance is not within 20% of nominal. 3: Pot Position is not within tolerance with test applied. 4: Voltage is not within tolerance with test applied.
 8455,Action,*,Invalid CAN Port,FAULT TYPES: 1
 8456,Action,*,VCL Watchdog,FAULT TYPES: 1
 8465,Action,*,Auto Baud Failure On M2,FAULT TYPES: 1
-8467,Action,*,Primary State Error,FAULT TYPES: 1
-8461,Action,*,PWM Input 29 Out of Range,FAULT TYPES: 1
-8460,Action,*,PWM Input 28 out of Range,FAULT TYPES: 1
+8467,Action,*,Primary State Error,Fault types: 0: PRIMARY_DEVICE_STARTUP 1: PRIMARY_WAIT_KSI_STABLE 2: PRIMARY_DEVICE_STARTUP_VA LID 3: PRIMARY_INITIALIZE_PARAMET ERS 4: PRIMARY_WAIT_FOR_FIRST_SIGN ALS 5: PRIMARY_WAIT_FOR_SUPERVISOR 6: PRIMARY_RESTORE_PARAMETER_ FAIL 7: PRIMARY_SUPERVISOR_FIRST_SIG NALS_ERROR 8: PRIMARY_SUPERVISOR_STARTUP_ ERROR 9: PRIMARY_STARTUP_TIMER_FAIL URE 10:PRIMARY_WAIT_CAN_HANDSH AKING_DONE 11:PRIMARY_RUNNING
+8461,Action,*,PWM Input 29 Out of Range,Fault types: 1: The input is disconnected 2: The measured input frequency is below the (PWM_Input_29_Low_Frequency) – (PWM_Input_29_Frequency_Fault_To lerance) 3: The measured input frequency is above the (PWM_Input_29_High_Frequency) + (PWM_Input_29_Frequency_Fault_To lerance) 4: The measured duty cycle is below set limits, (PWM_Input_29_Low_Duty_Cycle) – (PWM_Input_29_Duty_Cycle_Fault_T olerance) 5: The measured duty cycle is above set limits, (PWM_Input_29_High_Duty_Cycle) + (PWM_Input_29_Duty_Cycle_Fault_T olerance)
+8460,Action,*,PWM Input 28 Out of Range,Fault types: 1: The input is disconnected 2: The measured input frequency is below the (PWM_Input_28_Low_Frequency) – (PWM_Input_28_Frequency_Fault_To lerance) 3: The measured input frequency is above the (PWM_Input_28_High_Frequency) + (PWM_Input_28_Frequency_Fault_To lerance) 4: The measured duty cycle is below set limits,(PWM_Input_28_Low_Duty_Cy cle) – (PWM_Input_28_Duty_Cycle_Fault_T olerance) 5: The measured duty cycle is above set limits, (PWM_Input_28_High_Duty_Cycle) + (PWM_Input_28_Duty_Cycle_Fault_T olerance)
 8463,Action,*,Force Feedback Fault,FAULT TYPES: 1
 8452,Action,*,Lift Input,FAULT TYPES: 1
-8449,Action,*,Phase PWM Mismatch,FAULT TYPES: 1
+8449,Action,*,Phase PWM Mismatch,Fault types: 0: U phase 1: V phase 2: W phase
 10352,Action,*,Hardware Compatibility,FAULT TYPES: 1
 8453,Action,*,Lower Input,FAULT TYPES: 1
 8832,Action,*,Primary Command Input,FAULT TYPES: 1
-8476,Action,*,Hazardous Movement,FAULT TYPES: 1
+8476,Action,*,Hazardous Movement,Fault types: 1: The motor speed is in the opposite direction of the speed request and the motor fails to accelerate in the correct direction for a programmed time. In the event of a change to neutral, this hazard will be detected if the motor fails to accelerate toward zero speed for a programmed time 2: The acceleration is in the opposite direction of the difference between the operator speed request and the motor speed. The speed in the commanded direction is greater than the commanded speed by more than a parameter (Hazardous_Speed) for a programmed time (Hazardous_Throttle_ Response_Time)
 10386,Action,*,ESTOP_MISMATCH,FAULT TYPES: 1
 10387,Action,*,ESTOP_SRO,FAULT TYPES: 1
 8487,Action,*,Lift Limit,FAULT TYPES: 1
-8468,Action,*,IMU Failure,FAULT TYPES: 1
+8468,Action,*,IMU Failure,Fault types: 1: SPI Communication Failure. 2: Curtis Factory Self Test Failure 3: Reserved 4: Gyro Cal out of range, maximum calibration offset exceeded
 10384,Action,*,ERU Configuration,FAULT TYPES: 1
-10385,Action,*,DESAT Trip,FAULT TYPES: 1
-8490,Action,*,Memory Parity,FAULT TYPES: 1
+10385,Action,*,DSAT Trip,Fault types: 1: U Phase 2: U Phase 4: V Phase 8: V Phase 10: W Phase 20: W Phase
+8490,Action,*,Memory Parity,Fault types: 1. PSRAM Memory 2. DSRAM1 Memory 3. DSRAM2 Memory 4. USIC0 Memory 5. USIC1 Memory 6. USIC2 Memory 7. MultiCAN Memory 8. PMU Prefetch Memory 9. USB Memory 10. ETH TX Memory 11. ETH RX Memory 12. SDMMC0 Memory 13. SDMMC1 Memory
 8497,Action,*,Overvoltage Cutback,Fault types: 1
-10018,Action,*,User 7 Fault,Description :P
-10034,Action,*,User 11 Fault, Description :P
-10001,Action,*,User 2 Fault, Description :P
-10033,Action,*,User 10 Fault,Description :P
-10048,Action,*,User 13 Fault,Description :P
-10051,Action,*,User 16 Fault,Description :P
+10018,Action,*,User 7 Fault,User Fault
+10034,Action,*,User 11 Fault, User Fault
+10001,Action,*,User 2 Fault, User Fault
+10033,Action,*,User 10 Fault,User Fault
+10048,Action,*,User 13 Fault,User Fault
+10051,Action,*,User 16 Fault,User Fault
 8738,Action,*,Main Driver,A list of fault types for this fault is available at Fault Types: Drivers (3-1 to 3-5, 10-1 to 10-7)
-164,Action,*,Driver 4 Fault,Description :P
-165,Action,*,Driver 4 Fault,Description :P
-166,Action,*,Driver 4 Fault,Description :P
-167,Action,*,Driver 4 Fault,Description :P
-168,Action,*,Driver Assignment,Description :P
+164,Action,*,Driver 4 Fault,Driver 4 Fault
+165,Action,*,Driver 4 Fault,Driver 5 Fault
+166,Action,*,Driver 4 Fault,Driver 6 Fault
+167,Action,*,Driver 4 Fault,Driver [X] Fault
+168,Action,*,Driver Assignment,Fault types: 5 {X}: Driver number that caused the fault.
 147,Action,*,Encoder LOS,Description
 148,Action,*,Emer Rev Timeout,Description
 149,Action,*,Pump Overcurrent,Description

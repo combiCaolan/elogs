@@ -199,20 +199,6 @@ function ArrayReadLogs() {
 			Units = UnitsDictionary[ActionCode];
 			Description = DescriptionDictionary[ActionCode];
 
-			// try {
-			// 	if (Scale[0] == '*') {
-			// 		//means do the Log Key
-			// 		ShowValue = Units;
-			// 	} else {
-			// 		//Value is going to be the original value from log file
-			// 		Value = Number(LogFile.split('\n')[counter].split(';')[1]) * Number(Scale);
-
-			// 		ShowValue = Value.toFixed(2) + ' ' + Units;
-			// 	}
-			// } catch (err) {
-			// 	ShowValue = 'NA';
-			// }
-
 			Line["e"] = UnitsDictionary[LogFile.split('\n')[counter].split(';')[2]];
 			Line["el"] = "Log event";
 
